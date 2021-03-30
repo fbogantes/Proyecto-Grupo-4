@@ -1,0 +1,153 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Feb 7, 2021, 11:00:03 PM
+    Author     : Frey
+*/
+
+body {
+    background-image: url("faces/Images/mountain.jpg");
+    background-size: cover;
+    font-family: cursive;
+}
+
+.header {
+    padding: 1%;
+    background-color: grey;
+    border-spacing: 0;
+    padding-left: 10%;
+    align-content: center;
+}
+
+
+.loginbtn {
+    padding-left: 90%;
+
+}
+
+button {
+    height: 40px;
+    font-family: cursive;
+    font-size: larger;
+    color: white;
+    border-radius: 50px 50px 50px 50px;
+    background-color: #011B4E;
+}
+
+.container{
+  margin: auto;
+  width: 800px;
+  padding: 1px;
+}
+
+ul.slider{
+  position: relative;
+  width: 800px;
+  height: 500px;
+  list-style: none;
+}
+
+ul.slider li {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    opacity: 0;
+    width: inherit;
+    height: inherit;
+    transition: opacity .5s;
+    background:#fff;
+    
+}
+
+ul.slider li img{
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+ul.slider li:first-child {
+    opacity: 1; 
+}
+
+ul.slider li:target {
+    opacity: 1;
+}
+
+.menu{
+  text-align: center;
+  margin: 20px;
+}
+
+.menu li{
+  display: inline-block;
+  text-align: center;
+}
+
+.menu li a{
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  background-color: grey;
+  padding: 10px;
+  width: 20px;
+  height: 20px;
+  font-size: 20px;
+  border-radius: 100%;
+}
+
+.menu li a:hover{
+  background-color: #E4E4E4;
+}
+
+#container2{
+    max-width: 1200px;
+    text-align: center;
+    margin: 8px auto;
+}
+
+.lista {
+    background-color: gray;
+    font-size: 50px;
+    list-style: none;
+    margin: 8px auto;
+    padding: 10px;
+    border-radius: 16px;
+    width: 350px;
+}
+
+.lista li:before{
+    content: '';
+    background: url(../Images/lamp-down.png);
+    background-size: cover;
+    padding-top: 6px;
+    width: 50px;
+    height: 50px;
+    max-width: 50%;
+    display: block;
+    top: 1em;
+    float: left;
+    margin-top: 9px;
+}
+
+.lista li a{
+    width: 300px;
+}
+
+.lista li:hover {
+    background-color: #E4E4E4;
+}
+
+.lista li:hover:before{
+    content: '';
+    background: url("../Images/lamp-up.png");
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    max-width: 50%;
+    display: block;
+    top: 1em;
+    left: 50%;
+}

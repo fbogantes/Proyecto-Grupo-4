@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>Edita Empleado</title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <h:form id="editaEmpleadoForm">
+                    <b:container fluid="true">
+                        <b:panel title="Edita Empleado" look="primary" collapsible="false">
+                            <b:row tooltip="El ID no se modifica">
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="ID" for="id"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="ID" id="id"
+                                                 value="#{empleadoController.id}"
+                                                 readonly="true"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="id"/>
+                                </b:column>
+                            </b:row>
+                            <b:row tooltip="Modifique la identificacion unicamente para insertar un registro nuevo">
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Identificacion" for="identificacion" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Identificacion" id="identificacion" 
+                                                 value="#{empleadoController.idEmpleado}"
+                                                 readonly="true"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="identificacion"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Nombre" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Nombre" id="nombre" required="true"
+                                                 value="#{empleadoController.nombre}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="nombre"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Primer Apellido" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Primer Apellido" id="apellido1" required="true"
+                                                 value="#{empleadoController.apellido1}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido1"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Segundo Apellido" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Segundo Apellido" id="apellido2" required="true"
+                                                 value="#{empleadoController.apellido2}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido2"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputText value="Fecha Nacimiento" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:datepicker id="fechaNaci"
+                                                  required="true"
+                                                  required-message="Se requiere la fecha de nacimiento"
+                                                  value="#{empleadoController.fechaNacimiento}"
+                                                  />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaNaci"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Fecha Ingreso" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:datepicker id="fechaIngreso"
+                                                  required="true"
+                                                  required-message="Se requiere la fecha de Ingreso"
+                                                  value="#{empleadoController.fechaIngreso}"
+                                                  />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaIngreso"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Correo" for="correo"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Correo"
+                                                 required="true"  
+                                                 mask="email"
+                                                 id="correo"
+                                                 value="#{empleadoController.correo}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="correo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Celular" for="celular"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Celular"
+                                                 required="true"  
+                                                 mask="9999-9999"
+                                                 id="celular"
+                                                 value="#{empleadoController.celular}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="celular"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Genero" for="genero"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:panelGrid columns="2">
+                                        <b:radiobutton value="#{empleadoController.genero}"
+                                                       itemLabel="Masculino" itemValue="M"/>
+                                        <b:radiobutton value="#{empleadoController.genero}"
+                                                       itemLabel="Femenino" itemValue="F"/>
+                                    </b:panelGrid>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="genero"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2"/>
+                                <b:column medium-screen="4">
+                                   <b:commandButton value="Modificar"
+                                                     look="success"
+                                                     style="width: 33%"
+                                                     action="#{empleadoController.updateEmpleado()}"
+                                                     >
+
+                                    </b:commandButton>
+                                    <b:commandButton value="Eliminar"
+                                                     look="danger"
+                                                     action="#{empleadoController.deleteEmpleado()}"
+                                                     style="width: 33%"
+                                                     >
+
+                                    </b:commandButton>
+                                </b:column>                                
+                            </b:row>
+                        </b:panel> 
+                    </b:container>
+                </h:form>   
+            </ui:define>
+        </ui:composition>
+
+    </h:body>
+</html>
