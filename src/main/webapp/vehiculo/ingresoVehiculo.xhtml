@@ -11,12 +11,12 @@
         <ui:composition template="./../resources/templates/plantilla.xhtml">
 
             <ui:define name="content">
-                <h:form id="registroProspectoForm">
+                <h:form id="registroVehiculoForm">
                     <b:container fluid="true">
-                        <b:panel title="Prospecto" look="primary">
+                        <b:panel title="Registro de Vehiculo" look="primary">
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Id Vehiculo" for="cedula"/>
+                                    <h:outputLabel value="Id Vehiculo" for="ID_VEHICULO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="id"
@@ -31,7 +31,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Marca" for="nombre"/>
+                                    <h:outputLabel value="Marca" for="MARCA"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Marca"
@@ -45,7 +45,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Modelo" for="apellido1"/>
+                                    <h:outputLabel value="Modelo" for="MODELO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Modelo"
@@ -59,7 +59,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Placa" for="apellido2"/>
+                                    <h:outputLabel value="Placa" for="PLACA"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="1010201"
@@ -74,7 +74,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Estilo" for="fechaNacimiento"/>
+                                    <h:outputLabel value="Estilo" for="ESTILO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Estilo"
@@ -89,7 +89,7 @@
                             
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Año" for="fechaGraduacionColegio"/>
+                                    <h:outputLabel value="Año" for="AÑO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:datepicker required="true"                                                 
@@ -103,7 +103,7 @@
                             
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Numero de puertas" for="genero"/>
+                                    <h:outputLabel value="Numero de puertas" for="PUERTAS"/>
                                 </b:column>
                                 <b:column medium-screen="1">
                                     <b:panelGrid columns="2">
@@ -120,7 +120,7 @@
 
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Condicion" for="celular"/>
+                                    <h:outputLabel value="Condicion" for="CONDICION"/>
                                 </b:column>
                                 <b:column medium-screen="5">
                                     <b:inputText placeholder="Condicion"
@@ -135,7 +135,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Cilindraje" for="apellido1"/>
+                                    <h:outputLabel value="Cilindraje" for="CILINDRAJE"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Cilindraje"
@@ -149,7 +149,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Traccion" for="apellido1"/>
+                                    <h:outputLabel value="Traccion" for="TRACCION"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Traccion"
@@ -163,7 +163,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Combustible" for="genero"/>
+                                    <h:outputLabel value="Combustible" for="COMBUSTIBLE"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:panelGrid columns="2">
@@ -180,7 +180,7 @@
 
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Kilometraje" for="apellido1"/>
+                                    <h:outputLabel value="Kilometraje" for="KILOMETRAJE"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Kilometraje"
@@ -194,7 +194,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Color interior" for="apellido1"/>
+                                    <h:outputLabel value="Color interior" for="COLOR_INT"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="C interior"
@@ -208,7 +208,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Color exterior" for="apellido1"/>
+                                    <h:outputLabel value="Color exterior" for="COLOR_EXT"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="C exterior"
@@ -222,7 +222,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Descripcion Extras" for="apellido1"/>
+                                    <h:outputLabel value="Descripcion Extras" for="EXTRAS"/>
                                 </b:column>
                                 <b:column medium-screen="5">
                                     <b:inputText placeholder="Extras"
@@ -236,7 +236,7 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Precio" for="apellido1"/>
+                                    <h:outputLabel value="Precio" for="PRECIO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Precio"
@@ -250,7 +250,7 @@
                             </b:row>
                            <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Negociable" for="genero"/>
+                                    <h:outputLabel value="Negociable" for="NEGOCIABLE"/>
                                 </b:column>
                                 <b:column medium-screen="1">
                                     <b:panelGrid columns="2">
@@ -267,7 +267,7 @@
 
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Traspaso" for="genero"/>
+                                    <h:outputLabel value="Traspaso" for="TRASPASO"/>
                                 </b:column>
                                 <b:column medium-screen="1">
                                     <b:panelGrid columns="2">
@@ -280,8 +280,13 @@
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="genero"/>
                                 </b:column>
+                                <b:column>
+                                    <input type="file" name="imagenes" maxlength="1000000" accept="image/*"/>
+                                </b:column>
                             </b:row>
-
+                            <br>
+                                
+                            </br>
                             <b:row>
                                 <b:column medium-screen="3">
                                     <p:captcha label="Check"/>
