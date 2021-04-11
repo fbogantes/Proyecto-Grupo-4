@@ -49,6 +49,37 @@ public class EmpleadoController extends Empleado implements Serializable {
             return "listempleado.xhtml";
         }
     }
+    
+    private boolean noImprimir = true;
+
+    public boolean isNoImprimir() {
+        return noImprimir;
+    }
+
+    public void setNoImprimir(boolean noImprimir) {
+        this.noImprimir = noImprimir;
+    }
+
+    public void buscarEmpleado(String idEmpleado) {
+        Empleado e = EmpleadoGestion.buscarEmpleado(idEmpleado);
+        if (e != null) {
+            this.setId(e.getId());
+            this.setIdEmpleado(e.getIdEmpleado());
+            this.setNombre(e.getNombre());
+            this.setApellido1(e.getApellido1());
+            this.setApellido2(e.getApellido2());
+            this.setFechaNacimiento(e.getFechaNacimiento());
+            this.setFechaIngreso(e.getFechaIngreso());
+            this.setCorreo(e.getCorreo());
+            this.setCelular(e.getCelular());
+            noImprimir = false;
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+                    "Posiblemente el registro no exista");
+            FacesContext.getCurrentInstance().addMessage("reporteEmpleadoForm:identificacion", msg);
+            noImprimir = true;
+        }
+    }
 
     public String insertEmpleado() {
         if (EmpleadoGestion.insertEmpleado(this)) {

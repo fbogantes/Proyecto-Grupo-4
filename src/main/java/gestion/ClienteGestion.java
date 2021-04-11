@@ -5,12 +5,17 @@
  */
 package gestion;
 
+import java.io.StringWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+import javax.json.JsonWriter;
 import model.Conexion;
 import model.Cliente;
 
@@ -123,5 +128,48 @@ public class ClienteGestion {
 
         }
         return false;
+    }
+    
+    public static String generarJson() {
+        Cliente cliente = null;
+        String tiraJson = "";
+        try {
+            PreparedStatement sentencia = Conexion.getConexion()
+                    .prepareStatement(SQL_GETCLIENTES);
+            ResultSet rs = sentencia.executeQuery();
+            while (rs != null && rs.next()) {
+                cliente = new Cliente(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getString(6)
+                );
+
+                JsonObjectBuilder creadorJson = Json.createObjectBuilder();
+                JsonObject objectJson = creadorJson.add("id", cliente.getId())
+                        .add("idCliente", cliente.getIdCliente())
+                        .add("nombre", cliente.getNombre())
+                        .add("apellido", cliente.getApellido())
+                        .add("correo", cliente.getCorreo())
+                        .add("celular", cliente.getCelular())
+                        .build();
+                StringWriter tira = new StringWriter();
+                JsonWriter jsonWriter = Json.createWriter(tira);
+                jsonWriter.writeObject(objectJson);
+                if (tiraJson == null) {
+                    tiraJson = tira.toString() + "\n";
+                } else {
+                    tiraJson = tiraJson + tira.toString() + "\n";
+                }
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ClienteGestion.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return tiraJson;
     }
 }

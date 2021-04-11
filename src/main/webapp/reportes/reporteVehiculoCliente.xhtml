@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui">
+    <h:head>
+        <title>
+            Reporte Vehiculo
+        </title>
+    </h:head>
+    <h:body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <h:form id="reporteVehiculoForm">
+                    <b:container fluid="true">
+                        <b:panel title="Imprimir Vehiculo" look="primary">
+                            <b:row tooltip="La PLACA no se modifica">
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="PLACA" for="PLACA"/>                                    
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="PLACA"
+                                                 id="PLACA"
+                                                 required="true"
+                                                 value="#{vehiculoController.PLACA}"
+                                                 />                                    
+                                </b:column>
+                                <b:column medium-screen="1">
+                                    <b:commandButton value="Buscar"
+                                                     icon="search"
+                                                     look="success"
+                                                     onclick="ajax:vehiculoController.buscarVehiculo(vehiculoController.PLACA)"
+                                                     update="@form"                                                    
+                                                     />
+
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="PLACA"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="1">
+                                    <h:outputLabel value="Vehiculo" for="vehiculo"/>                                    
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <h:outputLabel value="#{vehiculoController.nombreVehiculo}" />  
+                                </b:column>                               
+                            </b:row>
+                            <b:row >
+                                <b:column medium-screen="1"/>
+                                <b:column medium-screen="4">
+                                    <b:commandButton value="Imprimir"
+                                                     id="btImprimir"
+                                                     icon="print"
+                                                     look="primary"
+                                                     disabled="#{vehiculoController.noImprimir}"
+                                                     action="#{reporteController.verVehiculosPDF(vehiculoController)}"/>
+                                </b:column>                               
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </h:body>
+</html>

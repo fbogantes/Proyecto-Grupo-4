@@ -1,5 +1,3 @@
-<?xml version='1.0' encoding='UTF-8' ?> 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
@@ -55,22 +53,45 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="default.css" />
         <h:outputStylesheet  library="css" name="cssLayout.css"/>
-        <title>Tarea Frey</title>
+        <title>AutoTico</title>
     </h:head>
 
     <h:body>
         <div id="top" class="top">
             <ui:insert name="top">
+                <b:image library="images" name="logo.png" style="height: 75px; align-content: center;"/>
                 <b:navBar class="nav" inverse="false" fluid="true" brand="Sistema" 
                           brand-href="#{request.contextPath}/faces/principal.xhtml">
                     <b:navbarLinks pull="left">
-                        <b:image library="images" name="logo_AutoTICO-removebg-preview.png" style="height: 80px;"/>
+
+                        <b:dropMenu value='Dashboard'  icon-awesome='gamepad' iconAlign="right">                            
+                            <b:navLink value="04 Donas"  href="#{request.contextPath}/faces/dashboard/grafico04.xhtml"/>
+                            <b:navLink value="09 Animated"  href="#{request.contextPath}/faces/dashboard/grafico09.xhtml"/>
+                            <b:navLink value="10 Interactive"  href="#{request.contextPath}/faces/dashboard/grafico10.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Clientes" icon-awesome="fa-street-view" iconAlign=" right">
+                            <b:navLink value="Gestion de Clientes" href="#{request.contextPath}/faces/cliente/list.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Empleados" icon-awesome="fa-group" iconAlign=" right">
+                            <b:navLink value="Lista de Empleados"  href="#{request.contextPath}/faces/empleado/listempleado.xhtml"/>
+                            <b:navLink value="Registro Empleados"  href="#{request.contextPath}/faces/empleado/registro.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Reportes" icon-awesome="fa-newspaper-o" iconAlign=" right">
+                            <b:navLink value="Reporte Clientes"  href="#{request.contextPath}/faces/reportes/reporteCliente.xhtml"/>
+                            <b:navLink value="Reporte Empleados"  href="#{request.contextPath}/faces/reportes/reporteEmpleado.xhtml"/>
+                            <b:navLink value="Reportes Vehiculo"  href="#{request.contextPath}/faces/reportes/reporteVehiculoCliente.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Respaldos" icon-awesome="fa-newspaper-o" iconAlign=" right">
+                            <b:navLink value="Respaldos"  href="#{request.contextPath}/faces/respaldos/respaldo.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value='Registro Vehiculo'  icon-awesome='fa-automobile' iconAlign="right">                            
+                        <b:navLink value="Publicar"  href="#{request.contextPath}/faces/vehiculo/ingresoVehiculo.xhtml"/>
+                        </b:dropMenu>
+                        <!--                    <b:dropMenu value="Clientes" icon-awesome="fa-street-view" iconAlign=" right">
+                                                
+                                            </b:dropMenu>-->
                     </b:navbarLinks>
-                            <b:dropMenu value='Dashboard'  icon-awesome='gamepad' iconAlign="right">                            
-                                <b:navLink value="04 Donas"  href="#{request.contextPath}/faces/dashboard/grafico04.xhtml"/>
-                                <b:navLink value="09 Animated"  href="#{request.contextPath}/faces/dashboard/grafico09.xhtml"/>
-                                <b:navLink value="10 Interactive"  href="#{request.contextPath}/faces/dashboard/grafico10.xhtml"/>
-                            </b:dropMenu>
+
                     <b:navbarLinks pull="right" style-class="hidden-xs">
                         <b:dropMenu value="#{usuarioController.idUsuario}" icon-awesome="fa-user">
                             <b:navLink value="Salir" icon-awesome="fa-sign-out" href="#{request.contextPath}/faces/index.xhtml"/>
@@ -102,11 +123,11 @@
                         </b:dropMenu>
                     </b:navbarLinks>
                 </b:navBar> 
-                
+
                 <div id="mySidenav" class="sidenav">
-                  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                  <a href="#{request.contextPath}/faces/principal.xhtml">Inicio</a>
-                  <a href="#{request.contextPath}/faces/cliente/list.xhtml" >
+                    <!--<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>-->
+                    <a href="#{request.contextPath}/faces/principal.xhtml">Inicio</a>
+                    <a href="#{request.contextPath}/faces/cliente/list.xhtml" >
                         <b:navLink value="Gestion de Clientes" href="#{request.contextPath}/faces/cliente/list.xhtml"/>
                         <br> </br>
                         <b:navLink value="Lista de Empleados"  href="#{request.contextPath}/faces/empleado/listempleado.xhtml"/>
@@ -115,24 +136,24 @@
                         <br> </br>
                         <b:navLink value="Reporte Empleados"  href="#{request.contextPath}/faces/empleado/reporte.xhtml"/>
                         <br> </br>
-                  </a>
-                  <a href="#{request.contextPath}/faces/index.xhtml">Salir</a>
-                  
+                    </a>
+                    <a href="#{request.contextPath}/faces/index.html">Salir</a>
+
                 </div>
                 <span style="font-size:20px;cursor:pointer;color:#045491" onclick="openNav()">&#9776; Menu</span>
 
                 <script>
                     function openNav() {
-                      document.getElementById("mySidenav").style.width = "250px";
+                        document.getElementById("mySidenav").style.width = "250px";
                     }
 
                     function closeNav() {
-                      document.getElementById("mySidenav").style.width = "0";
+                        document.getElementById("mySidenav").style.width = "0";
                     }
                 </script>
-                
+
             </ui:insert>
-            
+
         </div>
 
         <div id="content" class="center_content">

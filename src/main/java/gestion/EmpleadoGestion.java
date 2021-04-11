@@ -5,12 +5,17 @@
  */
 package gestion;
 
+import java.io.StringWriter;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.json.Json;
+import javax.json.JsonObject;
+import javax.json.JsonObjectBuilder;
+import javax.json.JsonWriter;
 import model.Conexion;
 import model.Empleado;
 import model.YearGender;
@@ -23,6 +28,7 @@ public class EmpleadoGestion {
 
     private static final String SQL_GETEMPLEADOS = "SELECT * FROM empleado";
     private static final String SQL_GETEMPLEADO = "SELECT * FROM empleado where id=? and idEmpleado=?";
+    private static final String SQL_GETEMPLEADOReporte = "SELECT * FROM empleado where idEmpleado=?";
     private static final String SQL_INSERTEMPLEADO = "insert into empleado(idEmpleado,nombre,apellido1,apellido2,fechaNacimiento,fechaIngreso,correo,celular,genero) values (?,?,?,?,?,?,?,?)";
     private static final String SQL_UPDATEEMPLEADO = "update  empleado set nombre=?,apellido1=?,apellido2=?,fechaNacimiento=?,fechaIngreso=?,correo=?,celular=?,genero=? where id=? and idEmpleado=?";
     private static final String SQL_DELETEEMPLEADO = "Delete FROM empleado where id=? and idEmpleado=?";
@@ -86,6 +92,34 @@ public class EmpleadoGestion {
         return empleado;
     }
 
+    public static Empleado buscarEmpleado(String idEmpleado) {
+        Empleado empleado = null;
+        try {
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_GETEMPLEADOReporte);
+            sentencia.setString(2, idEmpleado);
+            ResultSet rs = sentencia.executeQuery();
+            while (rs != null && rs.next()) {
+                empleado = new Empleado(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getDate(6),
+                        rs.getDate(7),
+                         rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10).charAt(0)
+                );
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EmpleadoGestion.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return empleado;
+    }
+    
     public static ArrayList<YearGender> getIngresoYearGender() {
         ArrayList<YearGender> list = new ArrayList<>();
         try {
@@ -161,5 +195,58 @@ public class EmpleadoGestion {
 
         }
         return false;
+    }
+    
+    public static String generarJson() {
+        Empleado empleado = null;
+        String tiraJson = "";
+        String fecha1 = "";
+        String fecha2 = "";
+        try {
+            PreparedStatement sentencia = Conexion.getConexion()
+                    .prepareStatement(SQL_GETEMPLEADOS);
+            ResultSet rs = sentencia.executeQuery();
+            while (rs != null && rs.next()) {
+                empleado = new Empleado(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getDate(6),
+                        rs.getDate(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10).charAt(0)
+                );
+
+                JsonObjectBuilder creadorJson = Json.createObjectBuilder();
+                JsonObject objectJson = creadorJson.add("id", empleado.getId())
+                        .add("idCliente", empleado.getIdEmpleado())
+                        .add("nombre", empleado.getNombre())
+                        .add("apellido1", empleado.getApellido1())
+                        .add("apellido2", empleado.getApellido2())
+                        .add("fechaNacimiento", fecha1)
+                        .add("fechaIngreso", fecha2)
+                        .add("correo", empleado.getCorreo())
+                        .add("celular", empleado.getCelular())
+                        .add("genero", empleado.getGenero())
+                        .build();
+                StringWriter tira = new StringWriter();
+                JsonWriter jsonWriter = Json.createWriter(tira);
+                jsonWriter.writeObject(objectJson);
+                if (tiraJson == null) {
+                    tiraJson = tira.toString() + "\n";
+                } else {
+                    tiraJson = tiraJson + tira.toString() + "\n";
+                }
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EmpleadoGestion.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return tiraJson;
     }
 }
