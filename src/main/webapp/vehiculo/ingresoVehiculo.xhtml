@@ -23,7 +23,7 @@
                                                  required="true"
 
                                                  id="idvehiculo"
-                                                 value="#{prospectoController.idProspecto}"/>
+                                                 value="#{vehiculoController.ID_VEHICULO}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="id vehiculo"/>
@@ -37,7 +37,7 @@
                                     <b:inputText placeholder="Marca"
                                                  required="true"                                                 
                                                  id="nombre"
-                                                 value="#{prospectoController.nombre}"/>
+                                                 value="#{vehiculoController.MARCA}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="marca"/>
@@ -51,7 +51,7 @@
                                     <b:inputText placeholder="Modelo"
                                                  required="true"                                                 
                                                  id="apellido1"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.MODELO}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -66,7 +66,7 @@
                                                  required="true"
                                                  mask="9999999"                                                 
                                                  id="apellido2"
-                                                 value="#{prospectoController.apellido2}"/>
+                                                 value="#{vehiculoController.PLACA}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="apellido2"/>
@@ -80,7 +80,7 @@
                                     <b:inputText placeholder="Estilo"
                                                  required="true"                                                 
                                                  id="Estilo"
-                                                 value="#{prospectoController.fechaNacimiento}"/>
+                                                 value="#{vehiculoController.ESTILO}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="fechaNacimiento"/>
@@ -92,9 +92,9 @@
                                     <h:outputLabel value="Año" for="AÑO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
-                                    <b:datepicker required="true"                                                 
+                                    <b:inputText required="true"                                                 
                                                   id="fechaGraduacionColegio"
-                                                  value="#{prospectoController.fechaGraduacionColegio}"/>
+                                                  value="#{vehiculoController.YEAR}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="fechaGraduacionColegio"/>
@@ -107,9 +107,9 @@
                                 </b:column>
                                 <b:column medium-screen="1">
                                     <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.PUERTAS}"
                                                        itemLabel="2" itemValue="2"/>
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.PUERTAS}"
                                                        itemLabel="4" itemValue="4"/>
                                     </b:panelGrid>
                                 </b:column>
@@ -127,7 +127,7 @@
                                                  required="true"  
 
                                                  id="celular"
-                                                 value="#{prospectoController.celular}"/>
+                                                 value="#{vehiculoController.DESC_CONDICION}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="celular"/>
@@ -141,7 +141,7 @@
                                     <b:inputText placeholder="Cilindraje"
                                                  required="true"                                                 
                                                  id="cili"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.CILINDRAJE}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -155,7 +155,7 @@
                                     <b:inputText placeholder="Traccion"
                                                  required="true"                                                 
                                                  id="trac"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.TRACCION}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -167,9 +167,9 @@
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.COMBUSTIBLE}"
                                                        itemLabel="Diesel" itemValue="Die"/>
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.COMBUSTIBLE}"
                                                        itemLabel="Gasolina" itemValue="Gas"/>
                                     </b:panelGrid>
                                 </b:column>
@@ -186,7 +186,7 @@
                                     <b:inputText placeholder="Kilometraje"
                                                  required="true"                                                 
                                                  id="Kilo"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.KILOMETRAJE}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -200,7 +200,7 @@
                                     <b:inputText placeholder="C interior"
                                                  required="true"                                                 
                                                  id="CI"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.COLOR_INTERIOR}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -214,7 +214,7 @@
                                     <b:inputText placeholder="C exterior"
                                                  required="true"                                                 
                                                  id="CE"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.COLOR_EXTERIOR}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -228,7 +228,7 @@
                                     <b:inputText placeholder="Extras"
                                                  required="true"                                                 
                                                  id="DE"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.DESC_EXTRAS}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -242,7 +242,7 @@
                                     <b:inputText placeholder="Precio"
                                                  required="true"                                                 
                                                  id="precio"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.PRECIO}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -254,9 +254,9 @@
                                 </b:column>
                                 <b:column medium-screen="1">
                                     <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.NEGOCIABLE}"
                                                        itemLabel="Si" itemValue="Si"/>
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.NEGOCIABLE}"
                                                        itemLabel="No" itemValue="No"/>
                                     </b:panelGrid>
                                 </b:column>
@@ -271,9 +271,9 @@
                                 </b:column>
                                 <b:column medium-screen="1">
                                     <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.TRASPASO}"
                                                        itemLabel="Si" itemValue="Si"/>
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.TRASPASO}"
                                                        itemLabel="No" itemValue="No"/>
                                     </b:panelGrid>
                                 </b:column>
@@ -293,7 +293,7 @@
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:commandButton value="Registrar"
-                                                     action="#{empleadoController.insertEmpleado()}"
+                                                     action="#{vehiculoController.insertVehiculo()}"
                                                      look="primary"
                                                      style="width: 100%"/>
                                 </b:column>
