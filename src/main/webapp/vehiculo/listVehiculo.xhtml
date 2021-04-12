@@ -37,11 +37,11 @@
                                                    label="Modelo"
                                                    width="15%"
                                                    />
-                                <b:dataTableColumn value="#{vehiculo.AÑO}" 
+                                <b:dataTableColumn value="#{vehiculo.YEAR}" 
                                                    label="Año"
                                                    width="15%"
                                                    />
-                                <b:dataTableColumn value="#{vehiculo.CONICION}" 
+                                <b:dataTableColumn value="#{vehiculo.CONDICION}" 
                                                    label="Condicion"
                                                    width="9%"
                                                    />
@@ -65,7 +65,7 @@
                                                    label="Accion"
                                                    width="10%">
                                     <b:commandButton value="Editar"
-                                                     action="#{vehiculoController.editEmpleado(vehiculo.ID_VEHICULO, vehiculo.PLACA)}"
+                                                     action="#{vehiculoController.editVehiculo(vehiculo.ID_VEHICULO, vehiculo.PLACA)}"
                                                      />
 
                                 </b:dataTableColumn>
