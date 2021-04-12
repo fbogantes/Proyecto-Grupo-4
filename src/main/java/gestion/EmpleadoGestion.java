@@ -29,8 +29,8 @@ public class EmpleadoGestion {
     private static final String SQL_GETEMPLEADOS = "SELECT * FROM empleado";
     private static final String SQL_GETEMPLEADO = "SELECT * FROM empleado where id=? and idEmpleado=?";
     private static final String SQL_GETEMPLEADOReporte = "SELECT * FROM empleado where idEmpleado=?";
-    private static final String SQL_INSERTEMPLEADO = "insert into empleado(idEmpleado,nombre,apellido1,apellido2,fechaNacimiento,fechaIngreso,correo,celular,genero) values (?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATEEMPLEADO = "update  empleado set nombre=?,apellido1=?,apellido2=?,fechaNacimiento=?,fechaIngreso=?,correo=?,celular=?,genero=? where id=? and idEmpleado=?";
+    private static final String SQL_INSERTEMPLEADO = "insert into empleado(idEmpleado,nombre,apellido1,apellido2,fechaNacimiento,fechaIngreso,correo,celular) values (?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATEEMPLEADO = "update  empleado set nombre=?,apellido1=?,apellido2=?,fechaNacimiento=?,fechaIngreso=?,correo=?,celular=? where id=? and idEmpleado=?";
     private static final String SQL_DELETEEMPLEADO = "Delete FROM empleado where id=? and idEmpleado=?";
     private static final String SQL_INGRESO_YEAR_GENDER = "SELECT YEAR(fechaIngreso) as Fecha,genero,Count(*) total FROM empleado group by  YEAR(fechaIngreso),genero order by YEAR(fechaIngreso)";
 
@@ -49,8 +49,7 @@ public class EmpleadoGestion {
                         rs.getDate(6),
                         rs.getDate(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getString(10).charAt(0)
+                        rs.getString(9)
                 ));
 
             }
@@ -80,8 +79,7 @@ public class EmpleadoGestion {
                         rs.getDate(6),
                         rs.getDate(7),
                          rs.getString(8),
-                        rs.getString(9),
-                        rs.getString(10).charAt(0)
+                        rs.getString(9)
                 );
             }
 
@@ -108,8 +106,7 @@ public class EmpleadoGestion {
                         rs.getDate(6),
                         rs.getDate(7),
                          rs.getString(8),
-                        rs.getString(9),
-                        rs.getString(10).charAt(0)
+                        rs.getString(9)
                 );
             }
 
@@ -151,7 +148,6 @@ public class EmpleadoGestion {
             sentencia.setObject(6, empleado.getFechaIngreso());
             sentencia.setString(7, empleado.getCorreo());
             sentencia.setString(8, empleado.getCelular());
-            sentencia.setString(9, "" + empleado.getGenero());
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException ex) {
@@ -172,7 +168,6 @@ public class EmpleadoGestion {
             sentencia.setObject(5, empleado.getFechaIngreso());
             sentencia.setString(6, empleado.getCorreo());
             sentencia.setString(7, empleado.getCelular());
-            sentencia.setString(8, "" + empleado.getGenero());
             sentencia.setInt(9, empleado.getId());
             sentencia.setString(10, empleado.getIdEmpleado());
             return sentencia.executeUpdate() > 0;
@@ -216,8 +211,7 @@ public class EmpleadoGestion {
                         rs.getDate(6),
                         rs.getDate(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getString(10).charAt(0)
+                        rs.getString(9)
                 );
 
                 JsonObjectBuilder creadorJson = Json.createObjectBuilder();
@@ -230,7 +224,6 @@ public class EmpleadoGestion {
                         .add("fechaIngreso", fecha2)
                         .add("correo", empleado.getCorreo())
                         .add("celular", empleado.getCelular())
-                        .add("genero", empleado.getGenero())
                         .build();
                 StringWriter tira = new StringWriter();
                 JsonWriter jsonWriter = Json.createWriter(tira);

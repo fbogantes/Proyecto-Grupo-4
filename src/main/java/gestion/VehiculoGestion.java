@@ -28,7 +28,7 @@ public class VehiculoGestion {
     private static final String SQL_GETVEHICULOS = "SELECT * FROM VEHICULO";
     private static final String SQL_GETVEHICULO = "SELECT * FROM VEHICULO WHERE ID_VEHICULO=? AND PLACA=?";
     private static final String SQL_GETVEHICULOReporte = "SELECT * FROM VEHICULO WHERE PLACA=?";
-    private static final String SQL_INSERTVEHICULO= "insert into VEHICULO "
+    private static final String SQL_INSERTVEHICULO= "insert into VEHICULO"
             + "(MARCA, MODELO, PLACA, ESTILO, YEAR, PUERTAS, CONDICION, CILINDRAJE, TRACCION, COMBUSTIBLE, KILOMETRAJE, COLOR_EXT, COLOR_INT, EXTRAS,PRECIO, NEGOCIABLE, TRASPASO, ID_CLIENTE) "
             + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SQL_UPDATEVEHICULO= "update  VEHICULO set "

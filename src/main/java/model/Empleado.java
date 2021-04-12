@@ -22,12 +22,11 @@ public class Empleado {
     private Date fechaIngreso;
     private String correo;
     private String celular;
-    private char genero;
-
+    
     public Empleado() {
     }
 
-    public Empleado(int id, String idEmpleado, String nombre, String apellido1, String apellido2, Date fechaNacimiento, Date fechaIngreso, String correo, String celular, char genero) {
+    public Empleado(int id, String idEmpleado, String nombre, String apellido1, String apellido2, Date fechaNacimiento, Date fechaIngreso, String correo, String celular) {
         this.id = id;
         this.idEmpleado = idEmpleado;
         this.nombre = nombre;
@@ -37,7 +36,6 @@ public class Empleado {
         this.fechaIngreso = fechaIngreso;
         this.correo = correo;
         this.celular = celular;
-        this.genero = genero;
     }
 
     public int getId() {
@@ -111,15 +109,10 @@ public class Empleado {
     public void setCelular(String celular) {
         this.celular = celular;
     }
+    
+    
 
-    public char getGenero() {
-        return genero;
-    }
-
-    public void setGenero(char genero) {
-        this.genero = genero;
-    }
-
+    
     public String getNombreCompleto(){
         String texto="";
         texto += this.nombre != null ? this.nombre + " ":"";
