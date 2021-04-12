@@ -18,7 +18,7 @@
                             </tr>
                             <br> </br>
                             <b:dataTable value="#{vehiculoController.vehiculos}"
-                                         var="empleado"
+                                         var="vehiculo"
                                          excel="true"
                                          csv="true"
                                          pdf="true"
@@ -37,7 +37,7 @@
                                                    label="Año"
                                                    width="15%"
                                                    />
-                                <b:dataTableColumn value="#{vehiculo.CONDICION}" 
+                                <b:dataTableColumn value="#{vehiculo.DESC_CONDICION}" 
                                                    label="Condicion"
                                                    width="9%"
                                                    />
@@ -45,18 +45,6 @@
                                                    label="Precio"
                                                    width="9%"
                                                    />
-<!--                                <b:dataTableColumn value="#{vehiculo.correo}" 
-                                                   label="Correo"
-                                                   width="12%"
-                                                   />
-                                <b:dataTableColumn value="#{vehiculo.celular}" 
-                                                   label="Celular"
-                                                   width="14%"
-                                                   />
-                                <b:dataTableColumn value="#{vehiculo.genero}" 
-                                                   label="Genero"
-                                                   width="8%"
-                                                   />-->
                                 <b:dataTableColumn style="text-align: center"
                                                    label="Accion"
                                                    width="10%">
