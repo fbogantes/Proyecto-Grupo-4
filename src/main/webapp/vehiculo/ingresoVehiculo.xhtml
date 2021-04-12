@@ -14,21 +14,7 @@
                 <h:form id="registroVehiculoForm">
                     <b:container fluid="true">
                         <b:panel title="Registro de Vehiculo" look="primary">
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Id Vehiculo" for="ID_VEHICULO"/>
-                                </b:column>
-                                <b:column medium-screen="2">
-                                    <b:inputText placeholder="id"
-                                                 required="true"
-
-                                                 id="idvehiculo"
-                                                 value="#{vehiculoController.ID_VEHICULO}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="id vehiculo"/>
-                                </b:column>
-                            </b:row>
+                            
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Marca" for="MARCA"/>
@@ -36,7 +22,7 @@
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Marca"
                                                  required="true"                                                 
-                                                 id="nombre"
+                                                 id="marca"
                                                  value="#{vehiculoController.MARCA}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
@@ -50,7 +36,7 @@
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Modelo"
                                                  required="true"                                                 
-                                                 id="apellido1"
+                                                 id="modelo"
                                                  value="#{vehiculoController.MODELO}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
@@ -65,7 +51,7 @@
                                     <b:inputText placeholder="1010201"
                                                  required="true"
                                                  mask="9999999"                                                 
-                                                 id="apellido2"
+                                                 id="placa"
                                                  value="#{vehiculoController.PLACA}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
@@ -79,7 +65,7 @@
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Estilo"
                                                  required="true"                                                 
-                                                 id="Estilo"
+                                                 id="estilo"
                                                  value="#{vehiculoController.ESTILO}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
@@ -93,7 +79,7 @@
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText required="true"                                                 
-                                                  id="fechaGraduacionColegio"
+                                                  id="year"
                                                   value="#{vehiculoController.YEAR}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
@@ -125,8 +111,7 @@
                                 <b:column medium-screen="5">
                                     <b:inputText placeholder="Condicion"
                                                  required="true"  
-
-                                                 id="celular"
+                                                 id="Condicion"
                                                  value="#{vehiculoController.DESC_CONDICION}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
@@ -140,7 +125,7 @@
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Cilindraje"
                                                  required="true"                                                 
-                                                 id="cili"
+                                                 id="cilindraje"
                                                  value="#{vehiculoController.CILINDRAJE}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
@@ -154,7 +139,7 @@
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Traccion"
                                                  required="true"                                                 
-                                                 id="trac"
+                                                 id="traccion"
                                                  value="#{vehiculoController.TRACCION}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
@@ -227,7 +212,7 @@
                                 <b:column medium-screen="5">
                                     <b:inputText placeholder="Extras"
                                                  required="true"                                                 
-                                                 id="DE"
+                                                 id="extras"
                                                  value="#{vehiculoController.DESC_EXTRAS}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">

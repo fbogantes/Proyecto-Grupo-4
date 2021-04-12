@@ -25,7 +25,7 @@ public class Vehiculo {
     private String COLOR_EXTERIOR;
     private String COLOR_INTERIOR;
     private String DESC_EXTRAS;
-    private double PRECIO;
+    private int PRECIO;
     private String NEGOCIABLE;
     private String TRASPASO;
     private int ID_CLIENTE;
@@ -33,7 +33,7 @@ public class Vehiculo {
     public Vehiculo() {
     }
 
-    public Vehiculo(int ID_VEHICULO, String MARCA, String MODELO, String PLACA, String ESTILO, int YEAR, int PUERTAS, String DESC_CONDICION, String CILINDRAJE, String TRACCION, String COMBUSTIBLE, int KILOMETRAJE, String COLOR_EXTERIOR, String COLOR_INTERIOR, String DESC_EXTRAS, double PRECIO, String NEGOCIABLE, String TRASPASO, int ID_CLIENTE) {
+    public Vehiculo(int ID_VEHICULO, String MARCA, String MODELO, String PLACA, String ESTILO, int YEAR, int PUERTAS, String DESC_CONDICION, String CILINDRAJE, String TRACCION, String COMBUSTIBLE, int KILOMETRAJE, String COLOR_EXTERIOR, String COLOR_INTERIOR, String DESC_EXTRAS, int PRECIO, String NEGOCIABLE, String TRASPASO, int ID_CLIENTE) {
         this.ID_VEHICULO = ID_VEHICULO;
         this.MARCA = MARCA;
         this.MODELO = MODELO;
@@ -175,11 +175,11 @@ public class Vehiculo {
         this.DESC_EXTRAS = DESC_EXTRAS;
     }
 
-    public double getPRECIO() {
+    public int getPRECIO() {
         return PRECIO;
     }
 
-    public void setPRECIO(double PRECIO) {
+    public void setPRECIO(int PRECIO) {
         this.PRECIO = PRECIO;
     }
 
@@ -206,6 +206,8 @@ public class Vehiculo {
     public void setID_CLIENTE(int ID_CLIENTE) {
         this.ID_CLIENTE = ID_CLIENTE;
     }
+
+    
 
     public String getNombreVehiculo(){
         String texto="";

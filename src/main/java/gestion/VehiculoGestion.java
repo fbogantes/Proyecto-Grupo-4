@@ -58,7 +58,7 @@ public class VehiculoGestion {
                         rs.getString(13),
                         rs.getString(14),
                         rs.getString(15),
-                        rs.getDouble(16),
+                        rs.getInt(16),
                         rs.getString(17),
                         rs.getString(18),
                         rs.getInt(19)
@@ -98,7 +98,7 @@ public class VehiculoGestion {
                         rs.getString(13),
                         rs.getString(14),
                         rs.getString(15),
-                        rs.getDouble(16),
+                        rs.getInt(16),
                         rs.getString(17),
                         rs.getString(18),
                         rs.getInt(19)
@@ -135,7 +135,7 @@ public class VehiculoGestion {
                         rs.getString(13),
                         rs.getString(14),
                         rs.getString(15),
-                        rs.getDouble(16),
+                        rs.getInt(16),
                         rs.getString(17),
                         rs.getString(18),
                         rs.getInt(19)
@@ -163,12 +163,13 @@ public class VehiculoGestion {
             sentencia.setString(9, vehiculo.getTRACCION());
             sentencia.setString(10, vehiculo.getCOMBUSTIBLE());
             sentencia.setInt(11, vehiculo.getKILOMETRAJE());
-            sentencia.setString(12, vehiculo.getCOLOR_INTERIOR());
-            sentencia.setString(13, vehiculo.getCOLOR_EXTERIOR());
-            sentencia.setDouble(14, vehiculo.getPRECIO());
-            sentencia.setString(15, vehiculo.getNEGOCIABLE());
-            sentencia.setString(16, vehiculo.getTRASPASO());
-            sentencia.setInt(17, vehiculo.getID_CLIENTE());
+            sentencia.setString(12, vehiculo.getCOLOR_EXTERIOR());
+            sentencia.setString(13, vehiculo.getCOLOR_INTERIOR());
+            sentencia.setString(14, vehiculo.getDESC_EXTRAS());
+            sentencia.setInt(15, vehiculo.getPRECIO());
+            sentencia.setString(16, vehiculo.getNEGOCIABLE());
+            sentencia.setString(17, vehiculo.getTRASPASO());
+            sentencia.setInt(18, vehiculo.getID_CLIENTE());
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException ex) {
@@ -184,22 +185,22 @@ public class VehiculoGestion {
             PreparedStatement sentencia = Conexion.getConexion().prepareCall(SQL_UPDATEVEHICULO);
             sentencia.setString(1, vehiculo.getMARCA());
             sentencia.setString(2, vehiculo.getMODELO());
-            sentencia.setString(3, vehiculo.getESTILO());
-            sentencia.setInt(4, vehiculo.getYEAR());
-            sentencia.setInt(5, vehiculo.getPUERTAS());
-            sentencia.setString(6, vehiculo.getDESC_CONDICION());
-            sentencia.setString(7, vehiculo.getCILINDRAJE());
-            sentencia.setString(8, vehiculo.getTRACCION());
-            sentencia.setString(9, vehiculo.getCOMBUSTIBLE());
-            sentencia.setInt(10, vehiculo.getKILOMETRAJE());
-            sentencia.setString(11, vehiculo.getCOLOR_INTERIOR());
+            sentencia.setString(3, vehiculo.getPLACA());
+            sentencia.setString(4, vehiculo.getESTILO());
+            sentencia.setInt(5, vehiculo.getYEAR());
+            sentencia.setInt(6, vehiculo.getPUERTAS());
+            sentencia.setString(7, vehiculo.getDESC_CONDICION());
+            sentencia.setString(8, vehiculo.getCILINDRAJE());
+            sentencia.setString(9, vehiculo.getTRACCION());
+            sentencia.setString(10, vehiculo.getCOMBUSTIBLE());
+            sentencia.setInt(11, vehiculo.getKILOMETRAJE());
             sentencia.setString(12, vehiculo.getCOLOR_EXTERIOR());
-            sentencia.setDouble(13, vehiculo.getPRECIO());
-            sentencia.setString(14, vehiculo.getNEGOCIABLE());
-            sentencia.setString(15, vehiculo.getTRASPASO());
-            sentencia.setInt(16, vehiculo.getID_CLIENTE());
-            sentencia.setInt(17, vehiculo.getID_VEHICULO());
-            sentencia.setString(18, vehiculo.getPLACA());
+            sentencia.setString(13, vehiculo.getCOLOR_INTERIOR());
+            sentencia.setString(14, vehiculo.getDESC_EXTRAS());
+            sentencia.setInt(15, vehiculo.getPRECIO());
+            sentencia.setString(16, vehiculo.getNEGOCIABLE());
+            sentencia.setString(17, vehiculo.getTRASPASO());
+            sentencia.setInt(18, vehiculo.getID_CLIENTE());
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException ex) {
@@ -246,7 +247,7 @@ public class VehiculoGestion {
                         rs.getString(13),
                         rs.getString(14),
                         rs.getString(15),
-                        rs.getDouble(16),
+                        rs.getInt(16),
                         rs.getString(17),
                         rs.getString(18),
                         rs.getInt(19)
