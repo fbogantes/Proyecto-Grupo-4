@@ -117,7 +117,7 @@ public class VehiculoController extends Vehiculo implements Serializable{
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al insertar el vehiculo");
-            FacesContext.getCurrentInstance().addMessage("editaVehiculoForm:identificacion", msg);
+            FacesContext.getCurrentInstance().addMessage("editaVehiculoForm:PLACA", msg);
             return "ingresoVehiculo.xhtml";
         }
     }
