@@ -16,12 +16,20 @@
                 <b:form>
                     <b:container fluid="true">
                         <b:panel title="Generar Respaldos" look="primary">
-                            <b:row>
-                                <b:column medium-screen="3">
-                                    <b:commandButton value="Respaldo" action="#{reporteController.respaldo()}"/>
-                                </b:column>
-
-                            </b:row>
+                            <b:panel title="Clientes Back Up ">
+                                <b:row>
+                                    <b:column medium-screen="3">
+                                        <b:commandButton value="Respaldo" action="#{reporteController.respaldoClienteVehiculo()}" tooltip="Respaldo en Formato JSON"/>
+                                    </b:column>
+                                </b:row>
+                            </b:panel>
+                            <b:panel title="Empleados Back Up ">
+                                <b:row>
+                                    <b:column medium-screen="3">
+                                        <b:commandButton value="Respaldo" action="#{reporteController.respaldoEmpleados()}" tooltip="Respaldo en Formato JSON"/>
+                                    </b:column>
+                                </b:row>    
+                            </b:panel>
                         </b:panel>
                     </b:container>
                 </b:form>

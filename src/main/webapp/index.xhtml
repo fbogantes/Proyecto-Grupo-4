@@ -5,7 +5,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-      xmlns:fn="http://java.sun.com/jsp/jstl/functions">
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:b="http://bootsfaces.net/ui">
    
     <body>
         <!-- AMENO -->
@@ -42,7 +43,7 @@
         <h:form id="form">
 
             <div class="card">
-                <h5>Default</h5>
+                <h5>Ofertas del Día</h5>
                 <p:carousel value="#{carouselView.products}" var="product" responsive="true">
                     <div class="product">
                         <div class="product-grid-item p-p-5">
@@ -54,10 +55,11 @@
                                 <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
                             </div>
                             <div class="product-grid-item-content">
-                                <p:graphicImage name="demo/images/product/#{product.image}"/>
+                                <b:image library="carros" name="/rav4.jpg" />
                                 <div class="product-name">#{product.name}</div>
                                 <div class="product-description">#{product.description}</div>
-                             </div>
+                                <p:rating readonly="true" value="#{product.rating}"/>
+                            </div>
                             <div class="product-grid-item-bottom">
                                 <h:outputText value="#{product.price}" styleClass="product-price">
                                     <f:convertNumber currencySymbol="$" type="currency"/>
@@ -77,7 +79,7 @@
             </div>
 
             <div class="product card">
-                <h5>Custom</h5>
+                <h5>Destacado</h5>
                 <p:carousel value="#{carouselView.products}" var="product"
                             itemStyle="text-align:center" numVisible="1" easing="easeOutBounce"
                             style="width: 500px;" circular="true">
@@ -91,6 +93,7 @@
                                 <span class="product-badge status-#{product.inventoryStatus.name().toLowerCase()}">#{product.inventoryStatus.text}</span>
                             </div>
                             <div class="product-grid-item-content">
+                                <b:image library="carros" name="rav4.jpg" />
                                 <p:graphicImage name="demo/images/product/#{product.image}"/>
                                 <div class="product-name">#{product.name}</div>
                                 <div class="product-description">#{product.description}</div>

@@ -10,59 +10,82 @@
         </title>
     </h:head>
     <h:body>
+        <!--        <ui:composition template="./../resources/templates/plantilla.xhtml">
+                    <ui:define name="content">
+                        <h:form id="reporteEmpleadoForm">
+                            <b:container fluid="true">
+                                <b:panel title="Imprimir Reporte de Empleados" look="primary">
+                                    <b:row tooltip="La identificacion no se modifica">
+                                        <b:column medium-screen="2">
+                                            <h:outputLabel value="Identificacion" for="identificacion"/>                                    
+                                        </b:column>
+                                        <b:column medium-screen="2">
+                                            <b:inputText placeholder="Identificacion"
+                                                         id="identificacion"
+                                                         required="true"
+                                                         value="#{empleadoController.idEmpleado}"
+                                                         />                                    
+                                        </b:column>
+                                        <b:column medium-screen="1">
+                                            <b:commandButton value="Buscar"
+                                                             icon="search"
+                                                             look="success"
+                                                             onclick="ajax:empleadoController.buscarEmpleado(empleadoController.idEmpleado)"
+                                                             update="@form"                                                    
+                                                             />
+        
+                                        </b:column>
+                                        <b:column medium-screen="6" style-class="message">
+                                            <b:message for="identificacion"/>
+                                        </b:column>
+                                    </b:row>
+                                    <b:row>
+                                        <b:column medium-screen="1">
+                                            <h:outputLabel value="Nombre" for="nombre"/>                                    
+                                        </b:column>
+                                        <b:column medium-screen="4">
+                                            <h:outputLabel value="#{empleadoController.nombreCompleto}" />  
+                                        </b:column>                               
+                                    </b:row>
+                                    <b:row >
+                                        <b:column medium-screen="1"/>
+                                        <b:column medium-screen="4">
+                                            <b:commandButton value="Imprimir"
+                                                             id="btImprimir"
+                                                             icon="print"
+                                                             look="primary"
+                                                             disabled="#{empleadoController.noImprimir}"
+                                                             action="#{reporteController.verEmpleadosPDF(empleadoController)}"/>
+                                        </b:column>                               
+                                    </b:row>
+                                </b:panel>
+                            </b:container>
+                        </h:form>
+                    </ui:define>
+        
+                </ui:composition>-->
         <ui:composition template="./../resources/templates/plantilla.xhtml">
             <ui:define name="content">
-                <h:form id="reporteEmpleadoForm">
+                <b:form>
                     <b:container fluid="true">
-                        <b:panel title="Imprimir Reporte de Empleados" look="primary">
-                            <b:row tooltip="La identificacion no se modifica">
+                        <b:panel title="Ejecute la opción deseada" look="primary">
+                            <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Identificacion" for="identificacion"/>                                    
+                                    <h:outputLabel value="Reportes en PDF"
+                                                   for="pdf"/>
                                 </b:column>
-                                <b:column medium-screen="2">
-                                    <b:inputText placeholder="Identificacion"
-                                                 id="identificacion"
-                                                 required="true"
-                                                 value="#{empleadoController.idEmpleado}"
-                                                 />                                    
-                                </b:column>
-                                <b:column medium-screen="1">
-                                    <b:commandButton value="Buscar"
-                                                     icon="search"
-                                                     look="success"
-                                                     onclick="ajax:empleadoController.buscarEmpleado(empleadoController.idEmpleado)"
-                                                     update="@form"                                                    
-                                                     />
-
+                                <b:column medium-screen="4">
+                                    <b:commandButton look="warning" value="Ver PDF" action="#{reporteController.verEmpleadosPDF()}" ></b:commandButton>
+                                    <b:commandButton look="success" value="Descargar PDF" action="#{reporteController.descargaEmpleadosPDF()}"></b:commandButton>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="identificacion"/>
+                                    <b:message for="pdf"/>
                                 </b:column>
-                            </b:row>
-                            <b:row>
-                                <b:column medium-screen="1">
-                                    <h:outputLabel value="Nombre" for="nombre"/>                                    
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <h:outputLabel value="#{empleadoController.nombreCompleto}" />  
-                                </b:column>                               
-                            </b:row>
-                            <b:row >
-                                <b:column medium-screen="1"/>
-                                <b:column medium-screen="4">
-                                    <b:commandButton value="Imprimir"
-                                                     id="btImprimir"
-                                                     icon="print"
-                                                     look="primary"
-                                                     disabled="#{empleadoController.noImprimir}"
-                                                     action="#{reporteController.verEmpleadosPDF(empleadoController)}"/>
-                                </b:column>                               
                             </b:row>
                         </b:panel>
                     </b:container>
-                </h:form>
+                </b:form>
             </ui:define>
-
         </ui:composition>
 
     </h:body>

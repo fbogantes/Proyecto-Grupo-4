@@ -101,7 +101,7 @@ public class ReporteController implements Serializable {
             File jasper = new File(FacesContext
                     .getCurrentInstance()
                     .getExternalContext()
-                    .getRealPath("/reportes/ClientK.jasper"));
+                    .getRealPath("/reportes/ClientesK.jasper"));
             
             JasperPrint reporteJasper = JasperFillManager.
                     fillReport(jasper.getPath(), null, Conexion.getConexion());
@@ -128,7 +128,7 @@ public class ReporteController implements Serializable {
             File jasper = new File(FacesContext
                     .getCurrentInstance().
                     getExternalContext()
-                    .getRealPath("/reportes/ClientK.jasper"));
+                    .getRealPath("/reportes/ClientesK.jasper"));
 
             JasperPrint reporteJasper = JasperFillManager.
                     fillReport(jasper.getPath(), null, Conexion.getConexion());
@@ -153,7 +153,7 @@ public class ReporteController implements Serializable {
             File jasper = new File(FacesContext
                     .getCurrentInstance()
                     .getExternalContext()
-                    .getRealPath("/reportes/EmpleadoK.jasper"));
+                    .getRealPath("/reportes/EmployeeK.jasper"));
             
             JasperPrint reporteJasper = JasperFillManager.
                     fillReport(jasper.getPath(), null, Conexion.getConexion());
@@ -180,7 +180,7 @@ public class ReporteController implements Serializable {
             File jasper = new File(FacesContext
                     .getCurrentInstance().
                     getExternalContext()
-                    .getRealPath("/reportes/EmpleadoK.jasper"));
+                    .getRealPath("/reportes/EmployeeK.jasper"));
 
             JasperPrint reporteJasper = JasperFillManager.
                     fillReport(jasper.getPath(), null, Conexion.getConexion());
@@ -199,6 +199,31 @@ public class ReporteController implements Serializable {
         }
     }
     
+    public void verVehiculoPDF() {
+        try {
+            File jasper = new File(FacesContext
+                    .getCurrentInstance()
+                    .getExternalContext()
+                    .getRealPath("/reportes/VehiculoK.jasper"));
+            
+            JasperPrint reporteJasper = JasperFillManager.
+                    fillReport(jasper.getPath(), null, Conexion.getConexion());
+            
+            HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance()
+                    .getExternalContext().getResponse();
+            
+            respuesta.setContentType("application/pdf");
+            respuesta.addHeader("Content-Type", "application/pdf");
+            
+            ServletOutputStream flujo = respuesta.getOutputStream();
+            JasperExportManager.exportReportToPdfStream(reporteJasper, flujo);
+            FacesContext.getCurrentInstance().responseComplete();
+                        
+        } catch (JRException | IOException e) {
+            
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
     
     public void verVehiculosPDF() {
         try {
@@ -226,11 +251,90 @@ public class ReporteController implements Serializable {
         }
     }
     
-     public void respaldo() {
+    
+    public void verUsuario(Usuario usuario) {
+         Map<String, Object> parametrosReporte = new HashMap<>();
+        parametrosReporte.put("idUsuario", usuario.getIdUsuario());
+        try {
+            File jasper = new File(FacesContext
+                    .getCurrentInstance().
+                    getExternalContext()
+                    .getRealPath("/reportes/UsuarioK.jasper"));
+
+            JasperPrint reporteJasper = JasperFillManager.
+                    fillReport(jasper.getPath(), parametrosReporte, Conexion.getConexion());
+
+            HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance()
+                    .getExternalContext().getResponse();
+
+            respuesta.setContentType("application/pdf");
+            respuesta.addHeader("Content-Type", "application/pdf");
+
+            ServletOutputStream flujo = respuesta.getOutputStream();
+            JasperExportManager.exportReportToPdfStream(reporteJasper, flujo);
+            FacesContext.getCurrentInstance().responseComplete();
+
+        } catch (JRException | IOException ex) {
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+     public void respaldoClienteVehiculo() {
         ZipOutputStream out = null;
         try {
             
             String json = EmpleadoGestion.generarJson() + ClienteGestion.generarJson() + VehiculoGestion.generarJson();
+
+            File f = new File(FacesContext
+                    .getCurrentInstance().
+                    getExternalContext()
+                    .getRealPath("/respaldo") + "respaldo.zip");
+            out = new ZipOutputStream(new FileOutputStream(f));
+            
+            ZipEntry e = new ZipEntry("respaldo.json");
+            out.putNextEntry(e);
+            byte[] data = json.getBytes();
+            out.write(data, 0, data.length);
+            out.closeEntry();
+            out.close();
+            
+            File zipPath = new File(FacesContext
+                    .getCurrentInstance().
+                    getExternalContext()
+                    .getRealPath("/respaldo") + "respaldo.zip");
+
+            byte[] zip = Files.readAllBytes(zipPath.toPath());
+
+            HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance()
+                    .getExternalContext().getResponse();
+            ServletOutputStream flujo = respuesta.getOutputStream();
+
+            respuesta.setContentType("application/pdf");
+            respuesta.addHeader("Content-disposition", "attachment; filename=respaldo.zip");
+
+            flujo.write(zip);
+            flujo.flush();
+            FacesContext.getCurrentInstance().responseComplete();
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                out.close();
+            } catch (IOException ex) {
+                Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+    }
+     public void respaldoEmpleado() {
+        ZipOutputStream out = null;
+        try {
+            
+            String json = EmpleadoGestion.generarJson();
 
             File f = new File(FacesContext
                     .getCurrentInstance().

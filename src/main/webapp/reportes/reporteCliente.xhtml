@@ -10,15 +10,27 @@
         <ui:composition template="./../resources/templates/plantilla.xhtml">
 
             <ui:define name="content">
-                <h:form id="reporteClienteForm">
+                <b:form>
                     <b:container fluid="true">
-                        <b:panel title="Imprimir Reporte de Clientes" look="primary">
-                            
+                        <b:panel title="Ejecute la opcion deseada" look="primary">
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Reporte en PDF"
+                                                   for="pdf"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:commandButton look="warning" value="Ver PDF" action="#{reporteController.verClientePDF()}"></b:commandButton>
+                                    <b:commandButton look="success" value="Descargar PDF" action="#{reporteController.descargaClientePDF()}"></b:commandButton>
+                                </b:column>
+                                <b:column>
+                                    <b:message for="pdf"/>
+                                </b:column>
+                            </b:row>
                         </b:panel>
                     </b:container>
-                    
-                </h:form>
+                </b:form>
             </ui:define>
+
         </ui:composition>
 
     </body>
