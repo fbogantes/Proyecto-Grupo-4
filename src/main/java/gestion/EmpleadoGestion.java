@@ -28,7 +28,7 @@ public class EmpleadoGestion {
 
     private static final String SQL_GETEMPLEADOS = "SELECT * FROM empleado";
     private static final String SQL_GETEMPLEADO = "SELECT * FROM empleado where id=? and idEmpleado=?";
-    private static final String SQL_GETEMPLEADOReporte = "SELECT * FROM empleado where idEmpleado=?";
+    private static final String SQL_GETEMPLEADOREPORTE = "SELECT * FROM empleado where idEmpleado=?";
     private static final String SQL_INSERTEMPLEADO = "insert into empleado(idEmpleado,nombre,apellido1,apellido2,fechaNacimiento,fechaIngreso,correo,celular) values (?,?,?,?,?,?,?,?)";
     private static final String SQL_UPDATEEMPLEADO = "update  empleado set nombre=?,apellido1=?,apellido2=?,fechaNacimiento=?,fechaIngreso=?,correo=?,celular=? where id=? and idEmpleado=?";
     private static final String SQL_DELETEEMPLEADO = "Delete FROM empleado where id=? and idEmpleado=?";
@@ -93,7 +93,7 @@ public class EmpleadoGestion {
     public static Empleado buscarEmpleado(String idEmpleado) {
         Empleado empleado = null;
         try {
-            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_GETEMPLEADOReporte);
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_GETEMPLEADOREPORTE);
             sentencia.setString(2, idEmpleado);
             ResultSet rs = sentencia.executeQuery();
             while (rs != null && rs.next()) {

@@ -56,22 +56,42 @@
         <h:outputStylesheet library="css" name="default.css" />
         <h:outputStylesheet  library="css" name="cssLayout.css"/>
         <h:outputStylesheet  library="css" name="style.css"/>
-        <title>Tarea Frey</title>
+        <title>AutoTico</title>
     </h:head>
 
     <h:body>
         <div id="top" class="top">
             <ui:insert name="top">
+                <b:image library="images" name="logo_AutoTICO-removebg-preview.png" style="height: 80px;"/>
                 <b:navBar class="nav" inverse="false" fluid="true" brand="Sistema" 
                           brand-href="#{request.contextPath}/faces/principal.xhtml">
                     <b:navbarLinks pull="left">
-                        <b:image library="images" name="logo_AutoTICO-removebg-preview.png" style="height: 80px;"/>
+                        
+                        <b:dropMenu value='Dashboard'  icon-awesome='gamepad' iconAlign="right">                            
+                            <b:navLink value="04 Donas"  href="#{request.contextPath}/faces/dashboard/grafico04.xhtml"/>
+                            <b:navLink value="09 Animated"  href="#{request.contextPath}/faces/dashboard/grafico09.xhtml"/>
+                            <b:navLink value="10 Interactive"  href="#{request.contextPath}/faces/dashboard/grafico10.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Clientes" icon-awesome="fa-street-view" iconAlign=" right">
+                            <b:navLink value="Gestion de Clientes" href="#{request.contextPath}/faces/cliente/list.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Empleados" icon-awesome="fa-group" iconAlign=" right">
+                            <b:navLink value="Lista de Empleados"  href="#{request.contextPath}/faces/empleado/listempleado.xhtml"/>
+                            <b:navLink value="Registro Empleados"  href="#{request.contextPath}/faces/empleado/registro.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Reportes" icon-awesome="fa-newspaper-o" iconAlign=" right">
+                            <b:navLink value="Reporte Clientes"  href="#{request.contextPath}/faces/reportes/reporteCliente.xhtml"/>
+                            <b:navLink value="Reporte Empleados"  href="#{request.contextPath}/faces/reportes/reporteEmpleado.xhtml"/>
+                            <b:navLink value="Reporte Usuario"  href="#{request.contextPath}/faces/reportes/reporteUsuario.xhtml"/>
+                            <b:navLink value="Reportes Vehiculo"  href="#{request.contextPath}/faces/reportes/reporteVehiculoCliente.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value="Respaldos" icon-awesome="fa-newspaper-o" iconAlign=" right">
+                            <b:navLink value="Respaldos"  href="#{request.contextPath}/faces/respaldos/respaldo.xhtml"/>
+                            
+                        </b:dropMenu>
+                    
+                    
                     </b:navbarLinks>
-                            <b:dropMenu value='Dashboard'  icon-awesome='gamepad' iconAlign="right">                            
-                                <b:navLink value="04 Donas"  href="#{request.contextPath}/faces/dashboard/grafico04.xhtml"/>
-                                <b:navLink value="09 Animated"  href="#{request.contextPath}/faces/dashboard/grafico09.xhtml"/>
-                                <b:navLink value="10 Interactive"  href="#{request.contextPath}/faces/dashboard/grafico10.xhtml"/>
-                            </b:dropMenu>
                     <b:navbarLinks pull="right" style-class="hidden-xs">
                             <b:navLink value="Log In" icon-awesome="fa-user" href="#{request.contextPath}/faces/login.xhtml"/>
                         <b:dropMenu value="Configuracion" icon-awesome="fa-cog">

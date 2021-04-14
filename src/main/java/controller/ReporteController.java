@@ -339,10 +339,10 @@ public class ReporteController implements Serializable {
             File f = new File(FacesContext
                     .getCurrentInstance().
                     getExternalContext()
-                    .getRealPath("/respaldo") + "respaldo.zip");
+                    .getRealPath("/respaldo") + "respaldoEmpleado.zip");
             out = new ZipOutputStream(new FileOutputStream(f));
             
-            ZipEntry e = new ZipEntry("respaldo.json");
+            ZipEntry e = new ZipEntry("respaldoEmpleado.json");
             out.putNextEntry(e);
             byte[] data = json.getBytes();
             out.write(data, 0, data.length);
@@ -352,7 +352,7 @@ public class ReporteController implements Serializable {
             File zipPath = new File(FacesContext
                     .getCurrentInstance().
                     getExternalContext()
-                    .getRealPath("/respaldo") + "respaldo.zip");
+                    .getRealPath("/respaldo") + "respaldoEmpleado.zip");
 
             byte[] zip = Files.readAllBytes(zipPath.toPath());
 
@@ -361,7 +361,7 @@ public class ReporteController implements Serializable {
             ServletOutputStream flujo = respuesta.getOutputStream();
 
             respuesta.setContentType("application/pdf");
-            respuesta.addHeader("Content-disposition", "attachment; filename=respaldo.zip");
+            respuesta.addHeader("Content-disposition", "attachment; filename=respaldoEmpleado.zip");
 
             flujo.write(zip);
             flujo.flush();
