@@ -102,9 +102,7 @@ public class UsuarioGestion {
             sentencia.setString(1, idUsuario);
             sentencia.setString(2, pwUsuario);
             ResultSet rs = sentencia.executeQuery();
-            /*Esto es lo que captura el resultset*/
- /* id idUsuario Pwusuario Nombre  IdRol
-               1    jose     123       jose    admin */
+
             if (rs.next()) {
                 usuario = new Usuario();
                 usuario.setIdUsuario(idUsuario);
