@@ -62,7 +62,7 @@ public class VehiculoGestion {
                         rs.getInt(16),
                         rs.getString(17),
                         rs.getString(18),
-                        rs.getInt(20),
+                        rs.getInt(19),
                         rs.getString(20))
                 );
 

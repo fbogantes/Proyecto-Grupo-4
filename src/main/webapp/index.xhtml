@@ -65,8 +65,11 @@
                                     </h:outputText>
                                     <p:commandButton type="button" value="Detalles"
                                                      icon="pi pi-shopping-cart"
-                                                     disabled="#{vehiculoController.getVehiculo(vehiculo.PLACA)}">
+                                                     action="#{vehiculoController.infoVehiculo(vehiculo.PLACA)}">
                                     </p:commandButton>
+                                    <b:commandButton value="Detalles"
+                                                     action="#{vehiculoController.infoVehiculo(vehiculo.PLACA)}"
+                                                     />
                                 </div>
                             </div>
                         </div>
