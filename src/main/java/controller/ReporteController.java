@@ -199,6 +199,55 @@ public class ReporteController implements Serializable {
         }
     }
     
+    public void verListoVehiculoPDF() {
+        try {
+            File jasper = new File(FacesContext
+                    .getCurrentInstance()
+                    .getExternalContext()
+                    .getRealPath("/reportes/ListaVehiculosK.jasper"));
+            
+            JasperPrint reporteJasper = JasperFillManager.
+                    fillReport(jasper.getPath(), null, Conexion.getConexion());
+            
+            HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance()
+                    .getExternalContext().getResponse();
+            
+            respuesta.setContentType("application/pdf");
+            respuesta.addHeader("Content-Type", "application/pdf");
+            
+            ServletOutputStream flujo = respuesta.getOutputStream();
+            JasperExportManager.exportReportToPdfStream(reporteJasper, flujo);
+            FacesContext.getCurrentInstance().responseComplete();
+                        
+        } catch (JRException | IOException e) {
+            
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    public void descargaListoVehiculosPDF() {
+        try {
+            File jasper = new File(FacesContext
+                    .getCurrentInstance().
+                    getExternalContext()
+                    .getRealPath("/reportes/ListaVehiculosK.jasper"));
+
+            JasperPrint reporteJasper = JasperFillManager.
+                    fillReport(jasper.getPath(), null, Conexion.getConexion());
+
+            HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance()
+                    .getExternalContext().getResponse();
+          
+            respuesta.addHeader("Content-disposition", "attachment; filename=reporteListaVehiculosK.pdf");
+
+            ServletOutputStream flujo = respuesta.getOutputStream();
+            JasperExportManager.exportReportToPdfStream(reporteJasper, flujo);
+            FacesContext.getCurrentInstance().responseComplete();
+
+        } catch (JRException | IOException ex) {
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void verVehiculoPDF() {
         try {
             File jasper = new File(FacesContext

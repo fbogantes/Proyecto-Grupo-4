@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                <b:form>
+                    <b:container fluid="true">
+                        <b:panel title="Ejecute la opción deseada" look="primary">
+                            
+                            <b:row>
+                                <b:column medium-screen="3">
+                                    <h:outputLabel value="Reportes en PDF"
+                                                   for="pdf"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Lista de Vehiculos"
+                                                   for="pdf"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:commandButton look="warning" value="Ver PDF" action="#{reporteController.verListoVehiculoPDF()}" ></b:commandButton>
+                                    <b:commandButton look="success" value="Descargar PDF" action="#{reporteController.descargaListoVehiculosPDF()}"></b:commandButton>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="pdf"/>
+                                </b:column>
+                            </b:row>
+                            <br></br>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Lista de Clientes"
+                                                   for="pdf"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:commandButton look="warning" value="Ver PDF" action="#{reporteController.verClientePDF()}"></b:commandButton>
+                                    <b:commandButton look="success" value="Descargar PDF" action="#{reporteController.descargaClientePDF()}"></b:commandButton>
+                                </b:column>
+                                <b:column>
+                                    <b:message for="pdf"/>
+                                </b:column>
+                            </b:row>
+                            <br></br>
+                             <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Lista Empleados"
+                                                   for="pdf"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:commandButton look="warning" value="Ver PDF" action="#{reporteController.verEmpleadosPDF()}" ></b:commandButton>
+                                    <b:commandButton look="success" value="Descargar PDF" action="#{reporteController.descargaEmpleadosPDF()}"></b:commandButton>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="pdf"/>
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                </b:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
