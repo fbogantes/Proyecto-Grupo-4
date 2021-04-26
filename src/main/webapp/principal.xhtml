@@ -1,7 +1,11 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -10,7 +14,45 @@
             <ui:define name="content">
                 <h1>Bienvenido ${usuarioController.idUsuario}</h1>
                 <p>Su nombre completo es: ${usuarioController.nombreUsuario}</p>
-                <p>Su rol es: ${usuarioController.idRol}</p>                
+                <p>Su rol es: ${usuarioController.idRol}</p>              
+
+                <h:form id="form">
+
+                    <div class="card">
+                        <h5>Vehiculos</h5>
+                        <p:carousel value="#{vehiculoController.vehiculos}" var="vehiculo" responsive="true">
+                            <div class="product">
+                                <div class="product-grid-item">
+                                    <div class="product-grid-item-top">
+                                        <div>
+                                            <span class="product-category">#{vehiculo.ESTILO}</span>
+                                        </div>
+                                        <span class="product-badge"></span>
+                                    </div>
+                                    <div class="product-grid-item-content">
+                                        <p:graphicImage name="./resources/images/vehiculo/#{vehiculo.IMAGE}"/>
+                                        <img src="carros/tacoma.jpg" alt=""/>
+                                        <div class="product-name">#{vehiculo.getNombreVehiculo()}</div>
+                                        <div class="product-description">#{vehiculo.YEAR}</div>
+                                    </div>
+                                    <div class="product-grid-item-bottom">
+                                        <h:outputText value="#{vehiculo.PRECIO}" styleClass="product-price">
+                                            <f:convertNumber currencySymbol="$" type="currency"/>
+                                        </h:outputText>
+                                        <p:commandButton type="button" value="Detalles"
+                                                         icon="pi pi-shopping-cart"
+                                                         disabled="#{vehiculoController.editVehiculo(vehiculo.ID_VEHICULO, vehiculo.PLACA)}">
+                                        </p:commandButton>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <f:facet name="footer">
+                                En total hay #{fn:length(vehiculoController.getVehiculos())} vehiculos.
+                            </f:facet>
+                        </p:carousel>
+                    </div>
+                </h:form>
             </ui:define>
         </ui:composition>
 

@@ -61,6 +61,20 @@
                                     <b:message for="pdf"/>
                                 </b:column>
                             </b:row>
+                            <br></br>
+                             <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Lista de Rent a Cars"
+                                                   for="pdf"/>
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:commandButton look="warning" value="Ver PDF" action="#{reporteController.verRentCar()}" ></b:commandButton>
+                                    <b:commandButton look="success" value="Descargar PDF" action="#{reporteController.descargaRentCar()}"></b:commandButton>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="pdf"/>
+                                </b:column>
+                            </b:row>
                         </b:panel>
                     </b:container>
                 </b:form>

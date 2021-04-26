@@ -44,7 +44,7 @@
                                     <h:outputLabel value="Vehiculo" for="vehiculo"/>                                    
                                 </b:column>
                                 <b:column medium-screen="4">
-                                    <h:outputLabel value="#{vehiculoController.nombreVehiculo}" />  
+                                    <h:outputLabel value="#{vehiculoController.MODELO}" />  
                                 </b:column>                               
                             </b:row>
                             <b:row >
@@ -55,7 +55,7 @@
                                                      icon="print"
                                                      look="primary"
                                                      disabled="#{vehiculoController.noImprimir}"
-                                                     action="#{reporteController.verVehiculosPDF(vehiculoController)}"/>
+                                                     action="#{reporteController.verVehiculo(vehiculoController)}"/>
                                 </b:column>                               
                             </b:row>
                         </b:panel>

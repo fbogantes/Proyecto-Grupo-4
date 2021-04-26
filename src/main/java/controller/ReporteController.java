@@ -27,6 +27,7 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import model.Conexion;
 import model.Usuario;
+import model.Vehiculo;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -188,7 +189,7 @@ public class ReporteController implements Serializable {
             HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance()
                     .getExternalContext().getResponse();
           
-            respuesta.addHeader("Content-disposition", "attachment; filename=reporteClienteK.pdf");
+            respuesta.addHeader("Content-disposition", "attachment; filename=reporteEmpleadosK.pdf");
 
             ServletOutputStream flujo = respuesta.getOutputStream();
             JasperExportManager.exportReportToPdfStream(reporteJasper, flujo);
@@ -238,6 +239,56 @@ public class ReporteController implements Serializable {
                     .getExternalContext().getResponse();
           
             respuesta.addHeader("Content-disposition", "attachment; filename=reporteListaVehiculosK.pdf");
+
+            ServletOutputStream flujo = respuesta.getOutputStream();
+            JasperExportManager.exportReportToPdfStream(reporteJasper, flujo);
+            FacesContext.getCurrentInstance().responseComplete();
+
+        } catch (JRException | IOException ex) {
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    public void verRentCar() {
+        try {
+            File jasper = new File(FacesContext
+                    .getCurrentInstance()
+                    .getExternalContext()
+                    .getRealPath("/reportes/RentCar.jasper"));
+            
+            JasperPrint reporteJasper = JasperFillManager.
+                    fillReport(jasper.getPath(), null, Conexion.getConexion());
+            
+            HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance()
+                    .getExternalContext().getResponse();
+            
+            respuesta.setContentType("application/pdf");
+            respuesta.addHeader("Content-Type", "application/pdf");
+            
+            ServletOutputStream flujo = respuesta.getOutputStream();
+            JasperExportManager.exportReportToPdfStream(reporteJasper, flujo);
+            FacesContext.getCurrentInstance().responseComplete();
+                        
+        } catch (JRException | IOException e) {
+            
+            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, e);
+        }
+    }
+    public void descargaRentCar() {
+        try {
+            File jasper = new File(FacesContext
+                    .getCurrentInstance().
+                    getExternalContext()
+                    .getRealPath("/reportes/RentCar.jasper"));
+
+            JasperPrint reporteJasper = JasperFillManager.
+                    fillReport(jasper.getPath(), null, Conexion.getConexion());
+
+            HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance()
+                    .getExternalContext().getResponse();
+          
+            respuesta.addHeader("Content-disposition", "attachment; filename=RentCar.pdf");
 
             ServletOutputStream flujo = respuesta.getOutputStream();
             JasperExportManager.exportReportToPdfStream(reporteJasper, flujo);
@@ -327,6 +378,7 @@ public class ReporteController implements Serializable {
             Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
     
     
      public void respaldoClienteVehiculo() {
