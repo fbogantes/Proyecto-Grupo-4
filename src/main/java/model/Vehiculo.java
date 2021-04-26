@@ -32,13 +32,13 @@ public class Vehiculo {
     private String TRASPASO;
     private int ID_CLIENTE;
     
-    private String image;
+    private String IMAGE;
     
     
     public Vehiculo() {
     }
 
-    public Vehiculo(int ID_VEHICULO, String MARCA, String MODELO, String PLACA, String ESTILO, int YEAR, int PUERTAS, String DESC_CONDICION, String CILINDRAJE, String TRACCION, String COMBUSTIBLE, int KILOMETRAJE, String COLOR_EXTERIOR, String COLOR_INTERIOR, String DESC_EXTRAS, int PRECIO, String NEGOCIABLE, String TRASPASO, int ID_CLIENTE) {
+    public Vehiculo(int ID_VEHICULO, String MARCA, String MODELO, String PLACA, String ESTILO, int YEAR, int PUERTAS, String DESC_CONDICION, String CILINDRAJE, String TRACCION, String COMBUSTIBLE, int KILOMETRAJE, String COLOR_EXTERIOR, String COLOR_INTERIOR, String DESC_EXTRAS, int PRECIO, String NEGOCIABLE, String TRASPASO, int ID_CLIENTE, String IMAGE) {
         this.ID_VEHICULO = ID_VEHICULO;
         this.MARCA = MARCA;
         this.MODELO = MODELO;
@@ -58,7 +58,10 @@ public class Vehiculo {
         this.NEGOCIABLE = NEGOCIABLE;
         this.TRASPASO = TRASPASO;
         this.ID_CLIENTE = ID_CLIENTE;
+        this.IMAGE = IMAGE;
     }
+
+
     
 
     public int getID_VEHICULO() {
@@ -213,14 +216,16 @@ public class Vehiculo {
         this.ID_CLIENTE = ID_CLIENTE;
     }
 
-    
-    public String getImage() {
-        return image;
+    public String getIMAGE() {
+        return IMAGE;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setIMAGE(String IMAGE) {
+        this.IMAGE = IMAGE;
     }
+
+    
+
     
 
     public String getNombreVehiculo(){

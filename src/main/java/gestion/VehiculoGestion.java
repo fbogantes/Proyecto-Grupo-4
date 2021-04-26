@@ -30,8 +30,8 @@ public class VehiculoGestion {
     private static final String SQL_GETVEHICULO = "SELECT * FROM VEHICULO WHERE ID_VEHICULO=? AND PLACA=?";
     private static final String SQL_GETVEHICULOReporte = "SELECT * FROM VEHICULO WHERE PLACA=?";
     private static final String SQL_INSERTVEHICULO= "insert into VEHICULO"
-            + "(MARCA, MODELO, PLACA, ESTILO, YEAR, PUERTAS, CONDICION, CILINDRAJE, TRACCION, COMBUSTIBLE, KILOMETRAJE, COLOR_EXT, COLOR_INT, EXTRAS, PRECIO, NEGOCIABLE, TRASPASO, ID_CLIENTE) "
-            + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            + "(MARCA, MODELO, PLACA, ESTILO, YEAR, PUERTAS, CONDICION, CILINDRAJE, TRACCION, COMBUSTIBLE, KILOMETRAJE, COLOR_EXT, COLOR_INT, EXTRAS, PRECIO, NEGOCIABLE, TRASPASO, ID_CLIENTE, IMAGE) "
+            + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SQL_UPDATEVEHICULO= "update  VEHICULO set "
             + "MARCA=?,MODELO=?, ESTILO=?,YEAR=?, PUERTAS=?, CONDICION=?, CILINDRAJE=?, TRACCION=?, COMBUSTIBLE=?, KILOMETRAJE=?, COLOR_EXT=?, COLOR_INT=?, EXTRAS=?,PRECIO=?, NEGOCIABLE=?, TRASPASO=?, ID_CLIENTE=? "
             + "WHERE ID_VEHICULO=? AND PLACA=?";
@@ -62,8 +62,9 @@ public class VehiculoGestion {
                         rs.getInt(16),
                         rs.getString(17),
                         rs.getString(18),
-                        rs.getInt(19)
-                ));
+                        rs.getInt(20),
+                        rs.getString(20))
+                );
 
             }
 
@@ -102,7 +103,8 @@ public class VehiculoGestion {
                         rs.getInt(16),
                         rs.getString(17),
                         rs.getString(18),
-                        rs.getInt(19)
+                        rs.getInt(19),
+                        rs.getString(20)
                 );
             }
 
@@ -139,7 +141,8 @@ public class VehiculoGestion {
                         rs.getInt(16),
                         rs.getString(17),
                         rs.getString(18),
-                        rs.getInt(19)
+                        rs.getInt(19),
+                        rs.getString(20)
                 );
             }
 
@@ -171,6 +174,7 @@ public class VehiculoGestion {
             sentencia.setString(16, vehiculo.getNEGOCIABLE());
             sentencia.setString(17, vehiculo.getTRASPASO());
             sentencia.setInt(18, vehiculo.getID_CLIENTE());
+            sentencia.setString(19, vehiculo.getIMAGE());
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException ex) {
@@ -251,7 +255,8 @@ public class VehiculoGestion {
                         rs.getInt(16),
                         rs.getString(17),
                         rs.getString(18),
-                        rs.getInt(19)
+                        rs.getInt(19),
+                        rs.getString(20)
                 );
 
                 JsonObjectBuilder creadorJson = Json.createObjectBuilder();
