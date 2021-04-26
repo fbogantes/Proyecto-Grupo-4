@@ -63,12 +63,43 @@ public class VehiculoController extends Vehiculo implements Serializable{
             this.setNEGOCIABLE(e.getNEGOCIABLE());
             this.setTRASPASO(e.getTRASPASO());
             this.setID_CLIENTE(e.getID_CLIENTE());
+            this.setIMAGE(e.getIMAGE());
             return "ingresoVehiculo.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Posiblemente el registro no exista");
             FacesContext.getCurrentInstance().addMessage("editaVehiculoForm:identificacion", msg);
             return "listVehiculo.xhtml";
+        }
+    }
+    
+    public String infoVehiculo(String PLACA) {
+        Vehiculo e = VehiculoGestion.buscarVehiculo(PLACA);
+        if (e != null) {
+            this.setID_VEHICULO(e.getID_VEHICULO());
+            this.setPLACA(e.getPLACA());
+            this.setMARCA(e.getMARCA());
+            this.setMODELO(e.getMODELO());
+            this.setESTILO(e.getESTILO());
+            this.setYEAR(e.getYEAR());
+            this.setPUERTAS(e.getPUERTAS());
+            this.setDESC_CONDICION(e.getDESC_CONDICION());
+            this.setCILINDRAJE(e.getCILINDRAJE());
+            this.setKILOMETRAJE(e.getKILOMETRAJE());
+            this.setCOLOR_EXTERIOR(e.getCOLOR_EXTERIOR());
+            this.setCOLOR_INTERIOR(e.getCOLOR_INTERIOR());
+            this.setDESC_EXTRAS(e.getDESC_EXTRAS());
+            this.setPRECIO(e.getPRECIO());
+            this.setNEGOCIABLE(e.getNEGOCIABLE());
+            this.setTRASPASO(e.getTRASPASO());
+            this.setID_CLIENTE(e.getID_CLIENTE());
+            this.setIMAGE(e.getIMAGE());
+            return "detallesVehiculo.xhtml";
+        } else {
+            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
+                    "Posiblemente el registro no exista");
+            FacesContext.getCurrentInstance().addMessage("detallesVehiculoForm:identificacion", msg);
+            return "index.xhtml";
         }
     }
     
@@ -102,6 +133,7 @@ public class VehiculoController extends Vehiculo implements Serializable{
             this.setNEGOCIABLE(e.getNEGOCIABLE());
             this.setTRASPASO(e.getTRASPASO());
             this.setID_CLIENTE(e.getID_CLIENTE());
+            this.setIMAGE(e.getIMAGE());
             
             noImprimir = false;
         } else {
