@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Frey
@@ -30,6 +32,9 @@ public class Vehiculo {
     private String TRASPASO;
     private int ID_CLIENTE;
     
+    private String image;
+    
+    
     public Vehiculo() {
     }
 
@@ -54,6 +59,7 @@ public class Vehiculo {
         this.TRASPASO = TRASPASO;
         this.ID_CLIENTE = ID_CLIENTE;
     }
+    
 
     public int getID_VEHICULO() {
         return ID_VEHICULO;
@@ -208,6 +214,14 @@ public class Vehiculo {
     }
 
     
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
 
     public String getNombreVehiculo(){
         String texto="";
@@ -215,5 +229,6 @@ public class Vehiculo {
         texto += this.MODELO != null ? this.MODELO + " ":"";
         return texto;
     }
+
 
 }
