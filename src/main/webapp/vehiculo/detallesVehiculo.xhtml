@@ -3,14 +3,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:b="http://bootsfaces.net/ui">
 
     <body>
 
-        <ui:composition template="./../resources/templates/plantilla.xhtml">
+        <ui:composition template="./../resources/templates/plantillalogout.xhtml">
 
             <ui:define name="content">
+                
                 <h:form id="registroVehiculoForm">
                     <b:container fluid="true">
                         <b:panel title="Registro de Vehiculo" look="primary">
@@ -23,7 +23,8 @@
                                     <b:inputText placeholder="Marca"
                                                  required="true"                                                 
                                                  id="marca"
-                                                 value="#{vehiculoController.MARCA}"/>
+                                                 value="#{vehiculoController.MARCA}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="marca"/>
@@ -37,7 +38,8 @@
                                     <b:inputText placeholder="Modelo"
                                                  required="true"                                                 
                                                  id="modelo"
-                                                 value="#{vehiculoController.MODELO}"/>
+                                                 value="#{vehiculoController.MODELO}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -50,9 +52,10 @@
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="1010201"
                                                  required="true"
-                                                 mask="999999"                                                 
+                                                 mask="9999999"                                                 
                                                  id="placa"
-                                                 value="#{vehiculoController.PLACA}"/>
+                                                 value="#{vehiculoController.PLACA}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="apellido2"/>
@@ -66,10 +69,11 @@
                                     <b:inputText placeholder="Estilo"
                                                  required="true"                                                 
                                                  id="estilo"
-                                                 value="#{vehiculoController.ESTILO}"/>
+                                                 value="#{vehiculoController.ESTILO}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="fechaNacimiento"/>
+                                    <b:message for="estilo"/>
                                 </b:column>
                             </b:row>
                             
@@ -80,7 +84,8 @@
                                 <b:column medium-screen="2">
                                     <b:inputText required="true"                                                 
                                                   id="year"
-                                                  value="#{vehiculoController.YEAR}"/>
+                                                  value="#{vehiculoController.YEAR}"
+                                                  readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="fechaGraduacionColegio"/>
@@ -89,18 +94,17 @@
                             
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Numero de puertas" for="PUERTAS"/>
+                                    <h:outputLabel value="Puertas" for="PUERTAS"/>
                                 </b:column>
-                                <b:column medium-screen="1">
-                                    <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{vehiculoController.PUERTAS}"
-                                                       itemLabel="2" itemValue="2"/>
-                                        <b:radiobutton value="#{vehiculoController.PUERTAS}"
-                                                       itemLabel="4" itemValue="4"/>
-                                    </b:panelGrid>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Estilo"
+                                                 required="true"                                                 
+                                                 id="estilo"
+                                                 value="#{vehiculoController.PUERTAS}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="genero"/>
+                                    <b:message for="Puertas"/>
                                 </b:column>
                             </b:row>
 
@@ -112,7 +116,8 @@
                                     <b:inputText placeholder="Condicion"
                                                  required="true"  
                                                  id="Condicion"
-                                                 value="#{vehiculoController.DESC_CONDICION}"/>
+                                                 value="#{vehiculoController.DESC_CONDICION}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="celular"/>
@@ -126,7 +131,8 @@
                                     <b:inputText placeholder="Cilindraje"
                                                  required="true"                                                 
                                                  id="cilindraje"
-                                                 value="#{vehiculoController.CILINDRAJE}"/>
+                                                 value="#{vehiculoController.CILINDRAJE}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -140,7 +146,8 @@
                                     <b:inputText placeholder="Traccion"
                                                  required="true"                                                 
                                                  id="traccion"
-                                                 value="#{vehiculoController.TRACCION}"/>
+                                                 value="#{vehiculoController.TRACCION}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -151,18 +158,16 @@
                                     <h:outputLabel value="Combustible" for="COMBUSTIBLE"/>
                                 </b:column>
                                 <b:column medium-screen="2">
-                                    <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{vehiculoController.COMBUSTIBLE}"
-                                                       itemLabel="Diesel" itemValue="Die"/>
-                                        <b:radiobutton value="#{vehiculoController.COMBUSTIBLE}"
-                                                       itemLabel="Gasolina" itemValue="Gas"/>
-                                    </b:panelGrid>
+                                    <b:inputText placeholder="Combustible"
+                                                 required="true"                                                 
+                                                 id="combustible"
+                                                 value="#{vehiculoController.COMBUSTIBLE}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="genero"/>
+                                    <b:message for="modelo"/>
                                 </b:column>
                             </b:row>
-
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Kilometraje" for="KILOMETRAJE"/>
@@ -171,7 +176,8 @@
                                     <b:inputText placeholder="Kilometraje"
                                                  required="true"                                                 
                                                  id="Kilo"
-                                                 value="#{vehiculoController.KILOMETRAJE}"/>
+                                                 value="#{vehiculoController.KILOMETRAJE}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -185,7 +191,8 @@
                                     <b:inputText placeholder="C interior"
                                                  required="true"                                                 
                                                  id="CI"
-                                                 value="#{vehiculoController.COLOR_INTERIOR}"/>
+                                                 value="#{vehiculoController.COLOR_INTERIOR}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -199,7 +206,8 @@
                                     <b:inputText placeholder="C exterior"
                                                  required="true"                                                 
                                                  id="CE"
-                                                 value="#{vehiculoController.COLOR_EXTERIOR}"/>
+                                                 value="#{vehiculoController.COLOR_EXTERIOR}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -213,7 +221,8 @@
                                     <b:inputText placeholder="Extras"
                                                  required="true"                                                 
                                                  id="extras"
-                                                 value="#{vehiculoController.DESC_EXTRAS}"/>
+                                                 value="#{vehiculoController.DESC_EXTRAS}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -227,7 +236,8 @@
                                     <b:inputText placeholder="Precio"
                                                  required="true"                                                 
                                                  id="precio"
-                                                 value="#{vehiculoController.PRECIO}"/>
+                                                 value="#{vehiculoController.PRECIO}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -237,66 +247,37 @@
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Negociable" for="NEGOCIABLE"/>
                                 </b:column>
-                                <b:column medium-screen="1">
-                                    <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{vehiculoController.NEGOCIABLE}"
-                                                       itemLabel="Si" itemValue="Si"/>
-                                        <b:radiobutton value="#{vehiculoController.NEGOCIABLE}"
-                                                       itemLabel="No" itemValue="No"/>
-                                    </b:panelGrid>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Negociable"
+                                                 required="true"                                                 
+                                                 id="negociable"
+                                                 value="#{vehiculoController.NEGOCIABLE}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="genero"/>
+                                    <b:message for="modelo"/>
                                 </b:column>
                             </b:row>
-
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Traspaso" for="TRASPASO"/>
                                 </b:column>
-                                <b:column medium-screen="1">
-                                    <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{vehiculoController.TRASPASO}"
-                                                       itemLabel="Si" itemValue="Si"/>
-                                        <b:radiobutton value="#{vehiculoController.TRASPASO}"
-                                                       itemLabel="No" itemValue="No"/>
-                                    </b:panelGrid>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Traspaso"
+                                                 required="true"                                                 
+                                                 id="traspaso"
+                                                 value="#{vehiculoController.TRASPASO}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="Traspaso"/>
+                                    <b:message for="modelo"/>
                                 </b:column>
                             </b:row>
-                            <b:row>
-                                <b:column>
-                                    <p:growl id="messages" showDetail="true"/>
-                                    
-                                    <div class="card">
-                                        <h5>Fotos</h5>
-                                        <h:form enctype="multipart/form-data">
-                                            <p:fileUpload value="#{vehiculoController.files}" mode="simple" skinSimple="true"/>
-                                            <br> </br>
-                                            <p:commandButton value="Subir Fotor" ajax="false" action="#{vehiculoController.upload}" styleClass="p-mt-3 ui-button-outlined p-d-block"/>
-                                        </h:form>
-                                    </div>
-                                </b:column>
-                            </b:row>   
-                            <br>
-                                
-                            </br>
-                            <b:row>
-                                <b:column medium-screen="3">
-                                    <p:captcha label="Check"/>
-                                </b:column>
-                                <b:column medium-screen="2">
-                                    <b:commandButton value="Registrar"
-                                                     action="#{vehiculoController.insertVehiculo()}"
-                                                     look="primary"
-                                                     style="width: 100%"/>
-                                </b:column>
-                            </b:row>
+                            
                         </b:panel>
                     </b:container>
                 </h:form>
+                
             </ui:define>
 
         </ui:composition>
