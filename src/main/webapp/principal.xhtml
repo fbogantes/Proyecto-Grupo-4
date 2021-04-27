@@ -5,7 +5,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
       xmlns:fn="http://java.sun.com/jsp/jstl/functions"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
 
     <body>
 
@@ -30,10 +31,11 @@
                                         <span class="product-badge"></span>
                                     </div>
                                     <div class="product-grid-item-content">
-                                        <p:graphicImage name="./resources/images/vehiculo/#{vehiculo.IMAGE}"/>
-                                        <img src="carros/tacoma.jpg" alt=""/>
+                                        <!-- <p:graphicImage name="./resources/images/vehiculo/#{vehiculo.IMAGE}"/> -->
+                                        <img src="carros/#{vehiculo.IMAGE}" alt=""/>
                                         <div class="product-name">#{vehiculo.getNombreVehiculo()}</div>
                                         <div class="product-description">#{vehiculo.YEAR}</div>
+                                        <div class="product-description">#{vehiculo.PLACA}</div>
                                     </div>
                                     <div class="product-grid-item-bottom">
                                         <h:outputText value="#{vehiculo.PRECIO}" styleClass="product-price">
@@ -41,8 +43,11 @@
                                         </h:outputText>
                                         <p:commandButton type="button" value="Detalles"
                                                          icon="pi pi-shopping-cart"
-                                                         disabled="#{vehiculoController.editVehiculo(vehiculo.ID_VEHICULO, vehiculo.PLACA)}">
+                                                         disabled="#{vehiculoController.infoVehiculo(vehiculo.PLACA)}">
                                         </p:commandButton>
+                                        <b:commandButton value="Detalles"
+                                                         action="#{vehiculoController.infoVehiculo(vehiculo.PLACA)}"
+                                                         />
                                     </div>
                                 </div>
                             </div>

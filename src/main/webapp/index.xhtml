@@ -54,10 +54,11 @@
                                     <span class="product-badge"></span>
                                 </div>
                                 <div class="product-grid-item-content">
-                                    <p:graphicImage name="./resources/images/vehiculo/#{vehiculo.IMAGE}"/>
-                                    <img src="carros/subaru.jpeg" alt=""/>
+                                    <!-- <p:graphicImage name="./resources/images/vehiculo/#{vehiculo.IMAGE}"/> -->
+                                    <img src="carros/#{vehiculo.IMAGE}" alt=""/>
                                     <div class="product-name">#{vehiculo.getNombreVehiculo()}</div>
                                     <div class="product-description">#{vehiculo.YEAR}</div>
+                                     <div class="product-description">#{vehiculo.PLACA}</div>
                                 </div>
                                 <div class="product-grid-item-bottom">
                                     <h:outputText value="#{vehiculo.PRECIO}" styleClass="product-price">
@@ -65,7 +66,7 @@
                                     </h:outputText>
                                     <p:commandButton type="button" value="Detalles"
                                                      icon="pi pi-shopping-cart"
-                                                     action="#{vehiculoController.infoVehiculo(vehiculo.PLACA)}">
+                                                     disabled="#{vehiculoController.infoVehiculo(vehiculo.PLACA)}">
                                     </p:commandButton>
                                     <b:commandButton value="Detalles"
                                                      action="#{vehiculoController.infoVehiculo(vehiculo.PLACA)}"
