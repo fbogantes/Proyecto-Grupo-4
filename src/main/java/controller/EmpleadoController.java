@@ -143,13 +143,13 @@ public class EmpleadoController extends Empleado implements Serializable {
         }
     }
 
-    public String updateEmpleado() {
+ public String updateEmpleado() {
         if (EmpleadoGestion.updateEmpleado(this)) {
             return "listempleado.xhtml";
 
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
-                    "Ocurrio un error al actualizar el empleado");
+                    "Ocurrio un error al actualizar el Empleado");
             FacesContext.getCurrentInstance().addMessage("editaEmpleadoForm:identificacion", msg);
             return "editempleado.xhtml";
         }
