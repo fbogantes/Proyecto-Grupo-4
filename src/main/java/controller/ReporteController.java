@@ -32,6 +32,8 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
+import ws.EmpleadoWS;
+import ws.UsuarioWS;
 
 /**
  *
@@ -381,29 +383,30 @@ public class ReporteController implements Serializable {
     
     
     
-     public void respaldoClienteVehiculo() {
+    
+    
+    public void respaldoClienteVehiculo() {
         ZipOutputStream out = null;
         try {
             
-            String json = EmpleadoGestion.generarJson() + ClienteGestion.generarJson() + VehiculoGestion.generarJson();
+            String json = UsuarioWS.generarJson();
 
             File f = new File(FacesContext
                     .getCurrentInstance().
                     getExternalContext()
-                    .getRealPath("/respaldo") + "respaldo.zip");
+                    .getRealPath("/respaldo") + "clientes.zip");
             out = new ZipOutputStream(new FileOutputStream(f));
-            
-            ZipEntry e = new ZipEntry("respaldo.json");
+            ZipEntry e = new ZipEntry("clientes.json");
             out.putNextEntry(e);
             byte[] data = json.getBytes();
             out.write(data, 0, data.length);
             out.closeEntry();
             out.close();
-            
+
             File zipPath = new File(FacesContext
                     .getCurrentInstance().
                     getExternalContext()
-                    .getRealPath("/respaldo") + "respaldo.zip");
+                    .getRealPath("/respaldo") + "clientes.zip");
 
             byte[] zip = Files.readAllBytes(zipPath.toPath());
 
@@ -412,7 +415,7 @@ public class ReporteController implements Serializable {
             ServletOutputStream flujo = respuesta.getOutputStream();
 
             respuesta.setContentType("application/pdf");
-            respuesta.addHeader("Content-disposition", "attachment; filename=respaldo.zip");
+            respuesta.addHeader("Content-disposition", "attachment; filename=clientes.zip");
 
             flujo.write(zip);
             flujo.flush();
@@ -431,29 +434,138 @@ public class ReporteController implements Serializable {
         }
 
     }
+    
+    
+    
+    
+    
+    
+//     public void respaldoClienteVehiculo() {
+//        ZipOutputStream out = null;
+//        try {
+//            
+//            String json = EmpleadoGestion.generarJson() + ClienteGestion.generarJson() + VehiculoGestion.generarJson();
+//
+//            File f = new File(FacesContext
+//                    .getCurrentInstance().
+//                    getExternalContext()
+//                    .getRealPath("/respaldo") + "respaldo.zip");
+//            out = new ZipOutputStream(new FileOutputStream(f));
+//            
+//            ZipEntry e = new ZipEntry("respaldo.json");
+//            out.putNextEntry(e);
+//            byte[] data = json.getBytes();
+//            out.write(data, 0, data.length);
+//            out.closeEntry();
+//            out.close();
+//            
+//            File zipPath = new File(FacesContext
+//                    .getCurrentInstance().
+//                    getExternalContext()
+//                    .getRealPath("/respaldo") + "respaldo.zip");
+//
+//            byte[] zip = Files.readAllBytes(zipPath.toPath());
+//
+//            HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance()
+//                    .getExternalContext().getResponse();
+//            ServletOutputStream flujo = respuesta.getOutputStream();
+//
+//            respuesta.setContentType("application/pdf");
+//            respuesta.addHeader("Content-disposition", "attachment; filename=respaldo.zip");
+//
+//            flujo.write(zip);
+//            flujo.flush();
+//            FacesContext.getCurrentInstance().responseComplete();
+//            
+//        } catch (FileNotFoundException ex) {
+//            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            try {
+//                out.close();
+//            } catch (IOException ex) {
+//                Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//
+//    }
+//     public void respaldoEmpleado() {
+//        ZipOutputStream out = null;
+//        try {
+//            
+//            String json = EmpleadoGestion.generarJson();
+//
+//            File f = new File(FacesContext
+//                    .getCurrentInstance().
+//                    getExternalContext()
+//                    .getRealPath("/respaldo") + "respaldoEmpleado.zip");
+//            out = new ZipOutputStream(new FileOutputStream(f));
+//            
+//            ZipEntry e = new ZipEntry("respaldoEmpleado.json");
+//            out.putNextEntry(e);
+//            byte[] data = json.getBytes();
+//            out.write(data, 0, data.length);
+//            out.closeEntry();
+//            out.close();
+//            
+//            File zipPath = new File(FacesContext
+//                    .getCurrentInstance().
+//                    getExternalContext()
+//                    .getRealPath("/respaldo") + "respaldoEmpleado.zip");
+//
+//            byte[] zip = Files.readAllBytes(zipPath.toPath());
+//
+//            HttpServletResponse respuesta = (HttpServletResponse) FacesContext.getCurrentInstance()
+//                    .getExternalContext().getResponse();
+//            ServletOutputStream flujo = respuesta.getOutputStream();
+//
+//            respuesta.setContentType("application/pdf");
+//            respuesta.addHeader("Content-disposition", "attachment; filename=respaldoEmpleado.zip");
+//
+//            flujo.write(zip);
+//            flujo.flush();
+//            FacesContext.getCurrentInstance().responseComplete();
+//            
+//        } catch (FileNotFoundException ex) {
+//            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (IOException ex) {
+//            Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+//        } finally {
+//            try {
+//                out.close();
+//            } catch (IOException ex) {
+//                Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
+//            }
+//        }
+//
+//    }
+
+     
+     
+     
      public void respaldoEmpleado() {
         ZipOutputStream out = null;
         try {
             
-            String json = EmpleadoGestion.generarJson();
+            String json = EmpleadoWS.generarJson();
 
             File f = new File(FacesContext
                     .getCurrentInstance().
                     getExternalContext()
-                    .getRealPath("/respaldo") + "respaldoEmpleado.zip");
+                    .getRealPath("/respaldo") + "empleados.zip");
             out = new ZipOutputStream(new FileOutputStream(f));
-            
-            ZipEntry e = new ZipEntry("respaldoEmpleado.json");
+            ZipEntry e = new ZipEntry("empleados.json");
             out.putNextEntry(e);
             byte[] data = json.getBytes();
             out.write(data, 0, data.length);
             out.closeEntry();
             out.close();
-            
+
             File zipPath = new File(FacesContext
                     .getCurrentInstance().
                     getExternalContext()
-                    .getRealPath("/respaldo") + "respaldoEmpleado.zip");
+                    .getRealPath("/respaldo") + "empleados.zip");
 
             byte[] zip = Files.readAllBytes(zipPath.toPath());
 
@@ -462,7 +574,7 @@ public class ReporteController implements Serializable {
             ServletOutputStream flujo = respuesta.getOutputStream();
 
             respuesta.setContentType("application/pdf");
-            respuesta.addHeader("Content-disposition", "attachment; filename=respaldoEmpleado.zip");
+            respuesta.addHeader("Content-disposition", "attachment; filename=empleados.zip");
 
             flujo.write(zip);
             flujo.flush();
@@ -481,5 +593,4 @@ public class ReporteController implements Serializable {
         }
 
     }
-
 }

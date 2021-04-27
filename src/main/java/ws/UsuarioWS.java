@@ -5,9 +5,7 @@
  */
 package ws;
 
-import gestion.EmpleadoGestion;
-import java.text.ParseException;
-import java.util.List;
+import gestion.UsuarioGestion;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -17,40 +15,45 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.enterprise.context.RequestScoped;
 import javax.ws.rs.core.MediaType;
-import model.Empleado;
 
 /**
  * REST Web Service
  *
- * @author giank
+ * @author xacmd
  */
-@Path("empleado")
+@Path("usuario")
 @RequestScoped
-public class EmpleadoWS {
+public class UsuarioWS {
 
     @Context
     private UriInfo context;
 
     /**
-     * Creates a new instance of EmpleadoWS
+     * Creates a new instance of UsuarioWS
      */
-    public EmpleadoWS() {
+    public UsuarioWS() {
     }
 
     /**
-     * Retrieves representation of an instance of ws.EmpleadoWS
+     * Retrieves representation of an instance of ws.UsuarioWS
      * @return an instance of java.lang.String
      */
     @GET
-    @Produces(MediaType.APPLICATION_JSON)
-  public List<Empleado> getEmpleados() throws ParseException{
-        return EmpleadoGestion.getEmpleados();
+    @Produces(MediaType.APPLICATION_XML)
+    public String getXml() {
+        //TODO return proper representation object
+        throw new UnsupportedOperationException();
     }
-
-@GET
+    @GET
     @Produces(MediaType.APPLICATION_JSON)
     public static String generarJson() {
         //TODO return proper representation object
-        return EmpleadoGestion.generarJson();
+        return UsuarioGestion.generarJson();
     }
+
+    /**
+     * PUT method for updating or creating an instance of UsuarioWS
+     * @param content representation for the resource
+     */
+   
 }
