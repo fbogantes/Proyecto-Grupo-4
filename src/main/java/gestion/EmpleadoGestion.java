@@ -159,7 +159,6 @@ public class EmpleadoGestion {
 
     public static boolean updateEmpleado(Empleado empleado) {
         try {
-
             PreparedStatement sentencia = Conexion.getConexion().prepareCall(SQL_UPDATEEMPLEADO);
             sentencia.setString(1, empleado.getNombre());
             sentencia.setString(2, empleado.getApellido1());
@@ -168,10 +167,9 @@ public class EmpleadoGestion {
             sentencia.setObject(5, empleado.getFechaIngreso());
             sentencia.setString(6, empleado.getCorreo());
             sentencia.setString(7, empleado.getCelular());
-            sentencia.setInt(9, empleado.getId());
-            sentencia.setString(10, empleado.getIdEmpleado());
+            sentencia.setInt(8, empleado.getId());
+            sentencia.setString(9, empleado.getIdEmpleado());
             return sentencia.executeUpdate() > 0;
-
         } catch (SQLException ex) {
             Logger.getLogger(EmpleadoGestion.class.getName()).log(Level.SEVERE, null, ex);
 
