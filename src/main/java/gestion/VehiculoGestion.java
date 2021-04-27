@@ -33,7 +33,7 @@ public class VehiculoGestion {
             + "(MARCA, MODELO, PLACA, ESTILO, YEAR, PUERTAS, CONDICION, CILINDRAJE, TRACCION, COMBUSTIBLE, KILOMETRAJE, COLOR_EXT, COLOR_INT, EXTRAS, PRECIO, NEGOCIABLE, TRASPASO, ID_CLIENTE, IMAGE) "
             + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
     private static final String SQL_UPDATEVEHICULO= "update  VEHICULO set "
-            + "MARCA=?,MODELO=?, ESTILO=?,YEAR=?, PUERTAS=?, CONDICION=?, CILINDRAJE=?, TRACCION=?, COMBUSTIBLE=?, KILOMETRAJE=?, COLOR_EXT=?, COLOR_INT=?, EXTRAS=?,PRECIO=?, NEGOCIABLE=?, TRASPASO=?, ID_CLIENTE=? "
+            + "MARCA=?,MODELO=?, ESTILO=?,YEAR=?, PUERTAS=?, CONDICION=?, CILINDRAJE=?, TRACCION=?, COMBUSTIBLE=?, KILOMETRAJE=?, COLOR_EXT=?, COLOR_INT=?, EXTRAS=?,PRECIO=?, NEGOCIABLE=?, TRASPASO=?, ID_CLIENTE=?, IMAGE=?"
             + "WHERE ID_VEHICULO=? AND PLACA=?";
     private static final String SQL_DELETEVEHICULO = "Delete FROM VEHICULO WHERE ID_VEHICULO AND PLACA";
 
@@ -206,6 +206,7 @@ public class VehiculoGestion {
             sentencia.setString(16, vehiculo.getNEGOCIABLE());
             sentencia.setString(17, vehiculo.getTRASPASO());
             sentencia.setInt(18, vehiculo.getID_CLIENTE());
+            sentencia.setString(19, vehiculo.getIMAGE());
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException ex) {
