@@ -78,7 +78,7 @@
                 <ui:insert name="top">
                     <b:image library="images" name="logo_AutoTICO-removebg-preview.png" style="height: 80px;"/>
                     <b:navBar class="nav" inverse="false" fluid="true" brand="Sistema" 
-                              brand-href="#{request.contextPath}/faces/principal.xhtml">
+                              brand-href="#{request.contextPath}/faces/index.xhtml">
                         <b:navbarLinks pull="left">
 
                             <b:dropMenu value='Dashboard'  icon-awesome='gamepad' iconAlign="right">                            
@@ -86,9 +86,7 @@
                                 <b:navLink value="09 Animated"  href="#{request.contextPath}/faces/dashboard/grafico09.xhtml"/>
                                 <b:navLink value="10 Interactive"  href="#{request.contextPath}/faces/dashboard/grafico10.xhtml"/>
                             </b:dropMenu>
-                            <b:dropMenu value="Clientes" icon-awesome="fa-street-view" iconAlign=" right">
-                                <b:navLink value="Gestion de Clientes" href="#{request.contextPath}/faces/cliente/list.xhtml"/>
-                            </b:dropMenu>
+                            
                             <b:dropMenu value="Empleados" icon-awesome="fa-group" iconAlign=" right">
                                 <b:navLink value="Lista de Empleados"  href="#{request.contextPath}/faces/empleado/listempleado.xhtml"/>
                             </b:dropMenu>
