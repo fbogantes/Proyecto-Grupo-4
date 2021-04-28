@@ -8,10 +8,10 @@
 
     <body>
 
-        <ui:composition template="./../resources/templates/plantillalogout.xhtml">
+        <ui:composition template="./resources/templates/plantillalogout.xhtml">
 
             <ui:define name="content">
-                <h:form id="detallesVehiculoForm">
+                <h:form id="detallesForm">
                     <b:container fluid="true">
                         <b:panel title="Registro de Vehiculo" look="primary">
                             
@@ -68,12 +68,12 @@
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Estilo"
                                                  required="true"                                                 
-                                                 id="estilo"
+                                                 id="Estilo"
                                                  value="#{vehiculoController.ESTILO}"
                                                  readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="estilo"/>
+                                    <b:message for="Estilo"/>
                                 </b:column>
                             </b:row>
                             
