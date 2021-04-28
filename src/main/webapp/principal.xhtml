@@ -23,40 +23,37 @@
                     <div class="card">
                         <h5>Vehiculos</h5>
                         <p:carousel value="#{vehiculoController.vehiculos}" var="vehiculo" responsive="true">
-                            <div class="product">
-                                <div class="product-grid-item">
-                                    <div class="product-grid-item-top">
-                                        <div>
-                                            <span class="product-category">#{vehiculo.ESTILO}</span>
-                                        </div>
-                                        <span class="product-badge"></span>
+                        <div class="product">
+                            <div class="product-grid-item">
+                                <div class="product-grid-item-top">
+                                    <div>
+                                        <span class="product-category">#{vehiculo.ESTILO}</span>
                                     </div>
-                                    <div class="product-grid-item-content">
-                                        <!-- <p:graphicImage name="./resources/images/vehiculo/#{vehiculo.IMAGE}"/> -->
-                                        <img src="carros/#{vehiculo.IMAGE}" alt=""/>
-                                        <div class="product-name">#{vehiculo.getNombreVehiculo()}</div>
-                                        <div class="product-description">#{vehiculo.YEAR}</div>
-                                        <div class="product-description">#{vehiculo.PLACA}</div>
-                                    </div>
-                                    <div class="product-grid-item-bottom">
-                                        <h:outputText value="#{vehiculo.PRECIO}" styleClass="product-price">
-                                            <f:convertNumber currencySymbol="$" type="currency"/>
-                                        </h:outputText>
-                                        <p:commandButton type="button" value="Detalles"
-                                                         icon="pi pi-shopping-cart"
-                                                         disabled="#{vehiculoController.infoVehiculo(vehiculo.PLACA)}">
-                                        </p:commandButton>
+                                    <span class="product-badge"></span>
+                                </div>
+                                <div class="product-grid-item-content">
+                                    <!-- <p:graphicImage name="./resources/images/vehiculo/#{vehiculo.IMAGE}"/> -->
+                                    <img src="carros/#{vehiculo.IMAGE}" alt=""/>
+                                    <div class="product-name">#{vehiculo.getNombreVehiculo()}</div>
+                                    <div class="product-description">#{vehiculo.YEAR}</div>
+                                     <div class="product-description">#{vehiculo.PLACA}</div>
+                                </div>
+                                <div class="product-grid-item-bottom">
+                                    <h:outputText value="#{vehiculo.PRECIO}" styleClass="product-price">
+                                        <f:convertNumber currencySymbol="$" type="currency"/>
+                                    </h:outputText>
                                     <b:commandButton value="Detalles"
                                                      action="#{vehiculoController.infoVehiculo(vehiculo.ID_VEHICULO,vehiculo.PLACA)}"
                                                      />
-                                    </div>
                                 </div>
                             </div>
+                        </div>
 
-                            <f:facet name="footer">
-                                En total hay #{fn:length(vehiculoController.getVehiculos())} vehiculos.
-                            </f:facet>
-                        </p:carousel>
+                        <f:facet name="footer">
+                            En total hay #{fn:length(vehiculoController.getVehiculos())} vehiculos.
+                        </f:facet>
+                    </p:carousel>
+                        
                     </div>
                 </h:form>
             </ui:define>
