@@ -11,6 +11,7 @@
         <style>    
             body {
                 font-family: "Lato", sans-serif;
+                background-color: #595959;
             }
 
             .sidenav {
@@ -51,6 +52,13 @@
                 .sidenav {padding-top: 15px;}
                 .sidenav a {font-size: 18px;}
             }
+
+/*            .contenedor {
+                max-width: 1800px;
+                max-height: 700px;
+                width: 95%;
+                margin: 0 auto;
+            }*/
         </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <h:outputStylesheet library="css" name="default.css" />
@@ -59,7 +67,7 @@
         <title>AutoTico</title>
     </h:head>
 
-    <h:body>
+    <h:body class="contenedor">
         <div id="top" class="top">
             <ui:insert name="top">
                 <b:image library="images" name="logo.png" style="height: 75px; align-content: center;"/>
@@ -158,7 +166,23 @@
 
         <div id="content" class="center_content">
             <ui:insert name="content"></ui:insert>
+            <footer class = 'footer'>
+                <div>
+                    <nav class="navegacion-footer">
+                        <b:navLink value="Clientes"  href="#{request.contextPath}/faces/cliente/list.xhtml"/>
+
+                        <b:navLink value="Empleados"  href="#{request.contextPath}/faces/empleado/listempleado.xhtml"/>
+
+                        <b:navLink value="Vehiculos"  href="#{request.contextPath}/faces/vehiculo/listVehiculo.xhtml"/>
+
+                    </nav>
+                </div>
+                <div>
+                    <p>© Auto<b>Tico</b> Marca registrada. 2021. Grupo 4</p>
+                </div>
+            </footer>
         </div>
+
 
     </h:body>
 
