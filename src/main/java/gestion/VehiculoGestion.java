@@ -76,6 +76,45 @@ public class VehiculoGestion {
 
     }
 
+        public static Vehiculo infoVehiculo(int ID_VEHICULO,String PLACA) {
+        Vehiculo vehiculo = null;
+        try {
+            PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_GETVEHICULO);
+            sentencia.setInt(1, ID_VEHICULO);
+            sentencia.setString(2, PLACA);
+            ResultSet rs = sentencia.executeQuery();
+            while (rs != null && rs.next()) {
+                vehiculo = new Vehiculo(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getString(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getString(10),
+                        rs.getString(11),
+                        rs.getInt(12),
+                        rs.getString(13),
+                        rs.getString(14),
+                        rs.getString(15),
+                        rs.getInt(16),
+                        rs.getString(17),
+                        rs.getString(18),
+                        rs.getInt(19),
+                        rs.getString(20)
+                );
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VehiculoGestion.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        return vehiculo;
+    }
+    
     public static Vehiculo getVehiculo(int ID_VEHICULO, String PLACA) {
         Vehiculo vehiculo = null;
         try {

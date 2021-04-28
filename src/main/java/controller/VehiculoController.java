@@ -73,8 +73,8 @@ public class VehiculoController extends Vehiculo implements Serializable{
         }
     }
     
-    public String infoVehiculo(String PLACA) {
-        Vehiculo e = VehiculoGestion.buscarVehiculo(PLACA);
+    public String infoVehiculo(int ID_VEHICULO, String PLACA) {
+          Vehiculo e = VehiculoGestion.getVehiculo(ID_VEHICULO, PLACA);
         if (e != null) {
             this.setID_VEHICULO(e.getID_VEHICULO());
             this.setPLACA(e.getPLACA());
@@ -85,6 +85,8 @@ public class VehiculoController extends Vehiculo implements Serializable{
             this.setPUERTAS(e.getPUERTAS());
             this.setDESC_CONDICION(e.getDESC_CONDICION());
             this.setCILINDRAJE(e.getCILINDRAJE());
+            this.setTRACCION(e.getTRACCION());
+            this.setCOMBUSTIBLE(e.getCOMBUSTIBLE());
             this.setKILOMETRAJE(e.getKILOMETRAJE());
             this.setCOLOR_EXTERIOR(e.getCOLOR_EXTERIOR());
             this.setCOLOR_INTERIOR(e.getCOLOR_INTERIOR());
@@ -93,13 +95,13 @@ public class VehiculoController extends Vehiculo implements Serializable{
             this.setNEGOCIABLE(e.getNEGOCIABLE());
             this.setTRASPASO(e.getTRASPASO());
             this.setID_CLIENTE(e.getID_CLIENTE());
-            this.setIMAGE(e.getIMAGE());
+            this.setIMAGE(e.getIMAGE());            
             return "detallesVehiculo.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Posiblemente el registro no exista");
             FacesContext.getCurrentInstance().addMessage("detallesVehiculoForm:identificacion", msg);
-            return "index.xhtml";
+            return "index.xhtml" ;
         }
     }
     
