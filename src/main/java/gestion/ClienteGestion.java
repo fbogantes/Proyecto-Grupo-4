@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package gestion;
 
 import java.io.StringWriter;
@@ -26,10 +27,10 @@ import model.Cliente;
 public class ClienteGestion {
 
     private static final String SQL_GETCLIENTES = "SELECT * FROM cliente";
-    private static final String SQL_GETCLIENTE = "SELECT * FROM cliente where id=? and idCliente=?";
-    private static final String SQL_INSERTCLIENTE = "insert into cliente(idCliente,nombre,apellido,correo,celular) values (?,?,?,?,?)";
-    private static final String SQL_UPDATECLIENTE= "update  cliente set nombre=?,apellido=?,correo=?,celular=? where id=? and idCliente=?";
-    private static final String SQL_DELETECLIENTE = "Delete FROM cliente where id=? and idCliente=?";
+    private static final String SQL_GETCLIENTE = "SELECT * FROM cliente where ID_CLIENTE=? and CEDULA=?";
+    private static final String SQL_INSERTCLIENTE = "insert into cliente(ID_CLEINTE,CEDULA,NOMBRE_1,APELLIDO_1,APELLIDO_2,CORREO,TELEFONO, UBICACION) values (?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATECLIENTE= "update  cliente set NOMBRE_1=?,APELLIDO_1=?,CORREO=?,TELEFONO=?,UBICACION=? where ID_CLIENTE=? and CEDULA=?";
+    private static final String SQL_DELETECLIENTE = "Delete FROM cliente where ID_CLIENTE=? and CEDULA=?";
 
     public static ArrayList<Cliente> getClientes() {
         ArrayList<Cliente> list = new ArrayList<>();
@@ -43,7 +44,9 @@ public class ClienteGestion {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6)
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)
                 ));
 
             }
@@ -56,12 +59,12 @@ public class ClienteGestion {
 
     }
 
-    public static Cliente getCliente(int id, String idCliente) {
+    public static Cliente getCliente(int ID_CLIENTE, String CEDULA) {
         Cliente cliente = null;
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_GETCLIENTE);
-            sentencia.setInt(1, id);
-            sentencia.setString(2, idCliente);
+            sentencia.setInt(1, ID_CLIENTE);
+            sentencia.setString(2, CEDULA);
             ResultSet rs = sentencia.executeQuery();
             while (rs != null && rs.next()) {
                 cliente = new Cliente(
@@ -70,7 +73,9 @@ public class ClienteGestion {
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6)
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)
                 );
             }
 
@@ -84,11 +89,14 @@ public class ClienteGestion {
     public static boolean insertCliente(Cliente cliente) {
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_INSERTCLIENTE);
-            sentencia.setString(1, cliente.getIdCliente());
-            sentencia.setString(2, cliente.getNombre());
-            sentencia.setString(3, cliente.getApellido());
-            sentencia.setString(4, cliente.getCorreo());
-            sentencia.setString(5, cliente.getCelular());
+            sentencia.setInt(1, cliente.getID_CLIENTE());
+            sentencia.setString(2, cliente.getCEDULA());
+            sentencia.setString(3, cliente.getNOMBRE());
+            sentencia.setString(4, cliente.getAPELLIDO_1());
+            sentencia.setString(5, cliente.getAPELLIDO_2());
+            sentencia.setString(6, cliente.getCORREO());
+            sentencia.setString(7, cliente.getTELEFONO());
+            sentencia.setString(8, cliente.getUBICACION());
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException ex) {
@@ -102,12 +110,14 @@ public class ClienteGestion {
         try {
 
             PreparedStatement sentencia = Conexion.getConexion().prepareCall(SQL_UPDATECLIENTE);
-            sentencia.setString(1, cliente.getNombre());
-            sentencia.setString(2, cliente.getApellido());
-            sentencia.setString(3, cliente.getCorreo());
-            sentencia.setString(4, cliente.getCelular());
-            sentencia.setInt(5, cliente.getId());
-            sentencia.setString(6, cliente.getIdCliente());
+            sentencia.setString(1, cliente.getNOMBRE());
+            sentencia.setString(2, cliente.getAPELLIDO_1());
+            sentencia.setString(3, cliente.getAPELLIDO_2());
+            sentencia.setString(4, cliente.getCORREO());
+            sentencia.setString(5, cliente.getTELEFONO());
+            sentencia.setString(6, cliente.getUBICACION());
+            sentencia.setInt(7, cliente.getID_CLIENTE());
+            sentencia.setString(8, cliente.getCEDULA());
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException ex) {
@@ -120,8 +130,8 @@ public class ClienteGestion {
     public static boolean deleteCliente(Cliente cliente) {
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_DELETECLIENTE);
-            sentencia.setInt(1, cliente.getId());
-            sentencia.setString(2, cliente.getIdCliente());
+            sentencia.setInt(1, cliente.getID_CLIENTE());
+            sentencia.setString(2, cliente.getCEDULA());
             return sentencia.executeUpdate() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(ClienteGestion.class.getName()).log(Level.SEVERE, null, ex);
@@ -139,21 +149,25 @@ public class ClienteGestion {
             ResultSet rs = sentencia.executeQuery();
             while (rs != null && rs.next()) {
                 cliente = new Cliente(
-                        rs.getInt(1),
+                         rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
                         rs.getString(5),
-                        rs.getString(6)
+                        rs.getString(6),
+                        rs.getString(7),
+                        rs.getString(8)
                 );
 
                 JsonObjectBuilder creadorJson = Json.createObjectBuilder();
-                JsonObject objectJson = creadorJson.add("id", cliente.getId())
-                        .add("idCliente", cliente.getIdCliente())
-                        .add("nombre", cliente.getNombre())
-                        .add("apellido", cliente.getApellido())
-                        .add("correo", cliente.getCorreo())
-                        .add("celular", cliente.getCelular())
+                JsonObject objectJson = creadorJson.add("ID_CLIENTE", cliente.getID_CLIENTE())
+                        .add("CEDULA", cliente.getCEDULA())
+                        .add("NOMBRE", cliente.getNOMBRE())
+                        .add("APELLIDO_1", cliente.getAPELLIDO_1())
+                        .add("APELLIDO_2", cliente.getAPELLIDO_2())
+                        .add("CORREO", cliente.getCORREO())
+                        .add("TELEFONO", cliente.getTELEFONO())
+                        .add("UBICACION", cliente.getUBICACION())
                         .build();
                 StringWriter tira = new StringWriter();
                 JsonWriter jsonWriter = Json.createWriter(tira);
