@@ -1,0 +1,304 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:p="http://primefaces.org/ui">
+
+    <body>
+
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+
+            <ui:define name="content">
+                <h:form id="registroProspectoForm">
+                    <b:container fluid="true">
+                        <b:panel title="Prospecto" look="primary">
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Id Vehiculo" for="cedula"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="id"
+                                                 required="true"
+
+                                                 id="idvehiculo"
+                                                 value="#{prospectoController.idProspecto}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="id vehiculo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Marca" for="nombre"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Marca"
+                                                 required="true"                                                 
+                                                 id="nombre"
+                                                 value="#{prospectoController.nombre}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="marca"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Modelo" for="apellido1"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Modelo"
+                                                 required="true"                                                 
+                                                 id="apellido1"
+                                                 value="#{prospectoController.apellido1}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="modelo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Placa" for="apellido2"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="1010201"
+                                                 required="true"
+                                                 mask="9999999"                                                 
+                                                 id="apellido2"
+                                                 value="#{prospectoController.apellido2}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="apellido2"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Estilo" for="fechaNacimiento"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Estilo"
+                                                 required="true"                                                 
+                                                 id="Estilo"
+                                                 value="#{prospectoController.fechaNacimiento}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaNacimiento"/>
+                                </b:column>
+                            </b:row>
+                            
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Año" for="fechaGraduacionColegio"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:datepicker required="true"                                                 
+                                                  id="fechaGraduacionColegio"
+                                                  value="#{prospectoController.fechaGraduacionColegio}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="fechaGraduacionColegio"/>
+                                </b:column>
+                            </b:row>
+                            
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Numero de puertas" for="genero"/>
+                                </b:column>
+                                <b:column medium-screen="1">
+                                    <b:panelGrid columns="2">
+                                        <b:radiobutton value="#{empleadoController.genero}"
+                                                       itemLabel="2" itemValue="2"/>
+                                        <b:radiobutton value="#{empleadoController.genero}"
+                                                       itemLabel="4" itemValue="4"/>
+                                    </b:panelGrid>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="genero"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Condicion" for="celular"/>
+                                </b:column>
+                                <b:column medium-screen="5">
+                                    <b:inputText placeholder="Condicion"
+                                                 required="true"  
+
+                                                 id="celular"
+                                                 value="#{prospectoController.celular}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="celular"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Cilindraje" for="apellido1"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Cilindraje"
+                                                 required="true"                                                 
+                                                 id="cili"
+                                                 value="#{prospectoController.apellido1}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="modelo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Traccion" for="apellido1"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Traccion"
+                                                 required="true"                                                 
+                                                 id="trac"
+                                                 value="#{prospectoController.apellido1}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="modelo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Combustible" for="genero"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:panelGrid columns="2">
+                                        <b:radiobutton value="#{empleadoController.genero}"
+                                                       itemLabel="Diesel" itemValue="Die"/>
+                                        <b:radiobutton value="#{empleadoController.genero}"
+                                                       itemLabel="Gasolina" itemValue="Gas"/>
+                                    </b:panelGrid>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="genero"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Kilometraje" for="apellido1"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Kilometraje"
+                                                 required="true"                                                 
+                                                 id="Kilo"
+                                                 value="#{prospectoController.apellido1}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="modelo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Color interior" for="apellido1"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="C interior"
+                                                 required="true"                                                 
+                                                 id="CI"
+                                                 value="#{prospectoController.apellido1}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="modelo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Color exterior" for="apellido1"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="C exterior"
+                                                 required="true"                                                 
+                                                 id="CE"
+                                                 value="#{prospectoController.apellido1}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="modelo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Descripcion Extras" for="apellido1"/>
+                                </b:column>
+                                <b:column medium-screen="5">
+                                    <b:inputText placeholder="Extras"
+                                                 required="true"                                                 
+                                                 id="DE"
+                                                 value="#{prospectoController.apellido1}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="modelo"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Precio" for="apellido1"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Precio"
+                                                 required="true"                                                 
+                                                 id="precio"
+                                                 value="#{prospectoController.apellido1}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="modelo"/>
+                                </b:column>
+                            </b:row>
+                           <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Negociable" for="genero"/>
+                                </b:column>
+                                <b:column medium-screen="1">
+                                    <b:panelGrid columns="2">
+                                        <b:radiobutton value="#{empleadoController.genero}"
+                                                       itemLabel="Si" itemValue="Si"/>
+                                        <b:radiobutton value="#{empleadoController.genero}"
+                                                       itemLabel="No" itemValue="No"/>
+                                    </b:panelGrid>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="genero"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Traspaso" for="genero"/>
+                                </b:column>
+                                <b:column medium-screen="1">
+                                    <b:panelGrid columns="2">
+                                        <b:radiobutton value="#{empleadoController.genero}"
+                                                       itemLabel="Si" itemValue="Si"/>
+                                        <b:radiobutton value="#{empleadoController.genero}"
+                                                       itemLabel="No" itemValue="No"/>
+                                    </b:panelGrid>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="genero"/>
+                                </b:column>
+                            </b:row>
+
+                            <b:row>
+                                <b:column medium-screen="3">
+                                    <p:captcha label="Check"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:commandButton value="Registrar"
+                                                     action="#{empleadoController.insertEmpleado()}"
+                                                     look="primary"
+                                                     style="width: 100%"/>
+                                </b:column>
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

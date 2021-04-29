@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:b="http://bootsfaces.net/ui"
+      >
+
+    <h:head>
+        <title>
+            Edita Taller
+        </title>    
+    </h:head>
+    <h:body>
+        <ui:composition template="./../resources/templates/plantilla.xhtml">
+            <ui:define name="content">
+                <h:form id="tallerForm">
+                    <b:container fluid="true">
+                        <b:panel title="Taller" look="info">
+                          
+                           
+                           
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Id" for="id"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="ID"
+                                                 required="true"                                                 
+                                                 id="id"
+                                                 value="#{tallerController.id}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="id"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Nombre" for="nombre"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText required="true"                                                 
+                                                  id="nombre"
+                                                  value="#{tallerController.nombre}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="nombre"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Ubicacion" for="ubicacion"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText required="true"                                                 
+                                                  id="ubicacion"
+                                                  value="#{tallerController.ubicacion}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="ubicacion"/>
+                                </b:column>
+                            </b:row>
+                            
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Teléfono" for="telefono"/>
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:inputText placeholder="Teléfono"
+                                                 required="true"  
+                                                
+                                                 id="telefono"
+                                                 value="#{tallerController.telefono}"/>
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="telefono"/>
+                                </b:column>
+                            </b:row>
+                        
+                            <b:row>
+                                <b:column medium-screen="3">
+                                </b:column>
+                                <b:column medium-screen="2">
+                                    <b:commandButton value="Ingresar"
+                                                     action="#{tallerController.insertTaller()}"
+                                                     look="info"
+                                                     style="width: 100%"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2"/>
+                                <b:column medium-screen="4">
+                                   <b:commandButton value="Modificar"
+                                                     look="success"
+                                                     style="width: 33%"
+                                                     action="#{tallerController.updateTaller()}"
+                                                     >
+
+                                    </b:commandButton>
+                                    <b:commandButton value="Eliminar"
+                                                     look="danger"
+                                                     action="#{tallerController.deleteTaller()}"
+                                                     style="width: 33%"
+                                                     >
+
+                                    </b:commandButton>
+                                </b:column>                                
+                            </b:row>
+                        </b:panel>
+                    </b:container>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
