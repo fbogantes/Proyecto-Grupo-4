@@ -14,26 +14,13 @@
     <h:body>
         <ui:composition template="./../resources/templates/plantilla.xhtml">
             <ui:define name="content">
-                <h:form id="repuestoForm">
+                <h:form id="editaRepuestoForm">
                     <b:container fluid="true">
                         <b:panel title="Edita Respuesto" look="info">
                           
                            
                            
-                            <b:row> tooltip="El ID no se modifica">
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Id" for="id"/>
-                                </b:column>
-                                <b:column medium-screen="2">
-                                    <b:inputText placeholder="ID"
-                                                 required="true"                                                 
-                                                 id="id"
-                                                 value="#{repuestoController.id}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="id"/>
-                                </b:column>
-                            </b:row>
+                           
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Descripcion" for="descripcion"/>
@@ -71,13 +58,13 @@
                                    <b:commandButton value="Modificar"
                                                      look="success"
                                                      style="width: 33%"
-                                                     action="#{repuestoController.updateEmpleado()}"
+                                                     action="#{repuestoController.updateRepuesto()}"
                                                      >
 
                                     </b:commandButton>
                                     <b:commandButton value="Eliminar"
                                                      look="danger"
-                                                     action="#{repuestoController.deleteEmpleado()}"
+                                                     action="#{repuestoController.deleteRepuesto()}"
                                                      style="width: 33%"
                                                      >
 

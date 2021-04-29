@@ -14,10 +14,10 @@
                     <b:container fluid="true">
                         <b:panel title="Lista De Repuestos" look="info" collapsible="false">
                             <tr>
-                                <td><b:button value="Registrar" href="#{request.contextPath}/faces/empleado/registro.xhtml" /></td>
+                                <td><b:button value="Registrar" href="#{request.contextPath}/faces/repuesto/repuestoForm.xhtml" /></td>
                             </tr>
                             <br> </br>
-                            <b:dataTable value="#{repuestoController.repuesto}"
+                            <b:dataTable value="#{repuestoController.repuestos}"
                                          var="repuesto"
                                          excel="true"
                                          csv="true"
@@ -25,11 +25,15 @@
                                          columnVisibility="true"
                                          copy="true"
                                          print="true">
-                                <b:dataTableColumn value="#{empleado.correo}" 
+                                <b:dataTableColumn value="#{repuesto.id}" 
                                                    label="ID"
-                                                   width="12%"
+                                                   width="2%"
                                                    />
-                                <b:dataTableColumn value="#{empleado.celular}" 
+                                <b:dataTableColumn value="#{repuesto.descripcion}" 
+                                                   label="Descripcion"
+                                                   width="14%"
+                                                   />
+                                <b:dataTableColumn value="#{repuesto.precio}" 
                                                    label="Descripcion"
                                                    width="14%"
                                                    />
@@ -37,7 +41,7 @@
                                                    label="Precio"
                                                    width="10%">
                                     <b:commandButton value="Editar"
-                                                     action="#{repuestoController.editRepuesto(repuesto.descripcion, repuesto.precio)}"
+                                                     action="#{repuestoController.editRepuesto(repuesto.id)}"
                                                      />
 
                                 </b:dataTableColumn>

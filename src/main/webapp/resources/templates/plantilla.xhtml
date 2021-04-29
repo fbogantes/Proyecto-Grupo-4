@@ -69,7 +69,7 @@
                           brand-href="#{request.contextPath}/faces/principal.xhtml">
                     <b:navbarLinks pull="left">
 
-                        <b:dropMenu value='Dashboard'  icon-awesome='gamepad' iconAlign="right">                            
+                        <b:dropMenu value='Dashboard'  icon-awesome='gamepad' iconAlign="left">                            
                             <b:navLink value="04 Donas"  href="#{request.contextPath}/faces/dashboard/grafico04.xhtml"/>
                             <!-- <b:navLink value="09 Animated"  href="#{request.contextPath}/faces/dashboard/grafico09.xhtml"/> -->
                             <b:navLink value="10 Interactive"  href="#{request.contextPath}/faces/dashboard/grafico10.xhtml"/>
@@ -89,10 +89,14 @@
                         <b:dropMenu value="Respaldos" icon-awesome="fa-newspaper-o" iconAlign=" right">
                             <b:navLink value="Respaldos"  href="#{request.contextPath}/faces/respaldos/respaldo.xhtml"/>
                         </b:dropMenu>
-                        <b:dropMenu value='Registro Vehiculo'  icon-awesome='fa-automobile' iconAlign="right">                            
+                        <b:dropMenu value='Registro Vehiculo'  icon-awesome='fa-automobile' iconAlign="left">                            
                             <b:navLink value="Publicar"  href="#{request.contextPath}/faces/vehiculo/ingresoVehiculo.xhtml"/>
                             <b:navLink value="Lista Vehiculos"  href="#{request.contextPath}/faces/vehiculo/listVehiculo.xhtml"/>
                             <b:navLink value="Repuesto"  href="#{request.contextPath}/faces/repuesto/repuestoForm.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value='Repuestos'  icon-awesome='fas fa-wrench' iconAlign="left">                            
+                            <b:navLink value="Ingresar"  href="#{request.contextPath}/faces/repuesto/repuestoForm.xhtml"/>
+                            <b:navLink value="Lista Repuestos"  href="#{request.contextPath}/faces/repuesto/listRepuesto.xhtml"/>
                         </b:dropMenu>
 
                     </b:navbarLinks>

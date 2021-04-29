@@ -36,7 +36,7 @@ public class RepuestoController extends Repuesto implements Serializable{
             this.setDescripcion(e.getDescripcion());
             this.setPrecio(e.getPrecio());
             
-            return "repuestoForm.xhtml";
+            return "editRepuesto.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Posiblemente el registro no exista");
@@ -106,18 +106,18 @@ public class RepuestoController extends Repuesto implements Serializable{
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al actualizar el repuesto");
             FacesContext.getCurrentInstance().addMessage("editaRepuestoForm:identificacion", msg);
-            return "repuestoForm.xhtml";
+            return "editRepuesto.xhtml";
         }
     }
 
     public String deleteRepuesto() {
         if (RepuestoGestion.eliminar(this.getId())) {
-            return "repuestoForm.xhtml";
+            return "listRepuesto.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al eliminar el repuesto");
             FacesContext.getCurrentInstance().addMessage("editaRepuestoForm:identificacion", msg);
-            return "repuestoForm.xhtml";
+            return "editRepuesto.xhtml";
         }
     }
 }
