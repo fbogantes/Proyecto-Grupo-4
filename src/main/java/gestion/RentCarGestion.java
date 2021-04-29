@@ -101,16 +101,15 @@ public class RentCarGestion {
 
     public static boolean updateRentCar(RentCar rent) {
         try {
-
             PreparedStatement sentencia = Conexion.getConexion().prepareCall(SQL_UPDATERENT);
-            sentencia.setInt(1, rent.getIdRentCar());
-            sentencia.setString(2, rent.getNombre());
-            sentencia.setString(3, rent.getUbicacion());
-            sentencia.setString(4, rent.getEstilo());
-            sentencia.setString(5, rent.getCorreo());
-            sentencia.setString(6, rent.getTelefono());
-            return sentencia.executeUpdate() > 0;
+            sentencia.setString(1, rent.getNombre());
+            sentencia.setString(2, rent.getUbicacion());
+            sentencia.setString(3, rent.getEstilo());
+            sentencia.setString(4, rent.getCorreo());
+            sentencia.setString(5, rent.getTelefono());
+            sentencia.setInt(6, rent.getIdRentCar());
 
+            return sentencia.executeUpdate() > 0;
         } catch (SQLException ex) {
             Logger.getLogger(RentCarGestion.class.getName()).log(Level.SEVERE, null, ex);
 
