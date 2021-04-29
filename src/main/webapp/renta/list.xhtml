@@ -33,12 +33,27 @@
                                                    label="Nombre"
                                                    width="15%"
                                                    />
-                                        
+                                <b:dataTableColumn value="#{RentCar.ubicacion}" 
+                                                   label="ubicacion"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{RentCar.estilo}" 
+                                                   label="estilo"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{RentCar.correo}" 
+                                                   label="correo"
+                                                   width="15%"
+                                                   />
+                                <b:dataTableColumn value="#{RentCar.telefono}" 
+                                                   label="telefono"
+                                                   width="15%"
+                                                   />                                
                                 <b:dataTableColumn style="text-align: center"
                                                    label="Accion"
                                                    width="10%">
                                     <b:commandButton value="Editar"
-                                                     action="#{rentCarController.editRentCar(IdRentCar,Nombre)}"
+                                                     action="#{rentCarController.editRentCar(RentCar.idRentCar,RentCar.nombre)}"
                                                      />
 
                                 </b:dataTableColumn>
