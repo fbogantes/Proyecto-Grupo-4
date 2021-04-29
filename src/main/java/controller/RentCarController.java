@@ -65,11 +65,10 @@ public class RentCarController extends RentCar implements Serializable {
     public String updateRentCar() {
         if (RentCarGestion.updateRentCar(this)) {
             return "list.xhtml";//por editar con el front end
-
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al actualizar el cliente");
-            FacesContext.getCurrentInstance().addMessage("rentCarForm:identificacion", msg);
+            FacesContext.getCurrentInstance().addMessage("UpdaterentCarForm:identificacion", msg);
             return "edit.xhtml";//por editar con el front end
         }
     }
