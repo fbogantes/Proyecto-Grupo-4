@@ -70,14 +70,14 @@
     <h:body class="contenedor">
         <div id="top" class="top">
             <ui:insert name="top">
-                <b:image library="images" name="logo.png" style="height: 75px; align-content: center;"/>
+                <b:image library="images" name="autotico.png" style="height: 90px; align-content: center;"/>
                 <b:navBar class="nav" inverse="false" fluid="true" brand="Sistema" 
                           brand-href="#{request.contextPath}/faces/principal.xhtml">
                     <b:navbarLinks pull="left">
 
                         <b:dropMenu value='Dashboard'  icon-awesome='gamepad' iconAlign="right">                            
                             <b:navLink value="04 Donas"  href="#{request.contextPath}/faces/dashboard/grafico04.xhtml"/>
-                            <b:navLink value="09 Animated"  href="#{request.contextPath}/faces/dashboard/grafico09.xhtml"/>
+                            <!-- <b:navLink value="09 Animated"  href="#{request.contextPath}/faces/dashboard/grafico09.xhtml"/> -->
                             <b:navLink value="10 Interactive"  href="#{request.contextPath}/faces/dashboard/grafico10.xhtml"/>
                         </b:dropMenu>
                         <b:dropMenu value="Clientes" icon-awesome="fa-street-view" iconAlign=" right">
