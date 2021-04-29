@@ -11,33 +11,19 @@
         <ui:composition template="./../resources/templates/plantilla.xhtml">
 
             <ui:define name="content">
-                <h:form id="registroProspectoForm">
+                <h:form id="editaVehiculoForm">
                     <b:container fluid="true">
-                        <b:panel title="Prospecto" look="primary">
+                        <b:panel title="Registro de Vehiculo" look="primary">
+                            
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Id Vehiculo" for="cedula"/>
-                                </b:column>
-                                <b:column medium-screen="2">
-                                    <b:inputText placeholder="id"
-                                                 required="true"
-
-                                                 id="idvehiculo"
-                                                 value="#{prospectoController.idProspecto}"/>
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="id vehiculo"/>
-                                </b:column>
-                            </b:row>
-                            <b:row>
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="Marca" for="nombre"/>
+                                    <h:outputLabel value="Marca" for="MARCA"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Marca"
                                                  required="true"                                                 
-                                                 id="nombre"
-                                                 value="#{prospectoController.nombre}"/>
+                                                 id="marca"
+                                                 value="#{vehiculoController.MARCA}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="marca"/>
@@ -45,13 +31,13 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Modelo" for="apellido1"/>
+                                    <h:outputLabel value="Modelo" for="MODELO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Modelo"
                                                  required="true"                                                 
-                                                 id="apellido1"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 id="modelo"
+                                                 value="#{vehiculoController.MODELO}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -59,14 +45,14 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Placa" for="apellido2"/>
+                                    <h:outputLabel value="Placa" for="PLACA"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="1010201"
                                                  required="true"
-                                                 mask="9999999"                                                 
-                                                 id="apellido2"
-                                                 value="#{prospectoController.apellido2}"/>
+                                                 mask="999999"                                                 
+                                                 id="placa"
+                                                 value="#{vehiculoController.PLACA}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="apellido2"/>
@@ -74,13 +60,13 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Estilo" for="fechaNacimiento"/>
+                                    <h:outputLabel value="Estilo" for="ESTILO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Estilo"
                                                  required="true"                                                 
-                                                 id="Estilo"
-                                                 value="#{prospectoController.fechaNacimiento}"/>
+                                                 id="estilo"
+                                                 value="#{vehiculoController.ESTILO}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="fechaNacimiento"/>
@@ -89,12 +75,12 @@
                             
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Año" for="fechaGraduacionColegio"/>
+                                    <h:outputLabel value="Año" for="AÑO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
-                                    <b:datepicker required="true"                                                 
-                                                  id="fechaGraduacionColegio"
-                                                  value="#{prospectoController.fechaGraduacionColegio}"/>
+                                    <b:inputText required="true"                                                 
+                                                  id="year"
+                                                  value="#{vehiculoController.YEAR}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="fechaGraduacionColegio"/>
@@ -103,13 +89,13 @@
                             
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Numero de puertas" for="genero"/>
+                                    <h:outputLabel value="Numero de puertas" for="PUERTAS"/>
                                 </b:column>
                                 <b:column medium-screen="1">
                                     <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.PUERTAS}"
                                                        itemLabel="2" itemValue="2"/>
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.PUERTAS}"
                                                        itemLabel="4" itemValue="4"/>
                                     </b:panelGrid>
                                 </b:column>
@@ -120,14 +106,13 @@
 
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Condicion" for="celular"/>
+                                    <h:outputLabel value="Condicion" for="CONDICION"/>
                                 </b:column>
                                 <b:column medium-screen="5">
                                     <b:inputText placeholder="Condicion"
                                                  required="true"  
-
-                                                 id="celular"
-                                                 value="#{prospectoController.celular}"/>
+                                                 id="Condicion"
+                                                 value="#{vehiculoController.DESC_CONDICION}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="celular"/>
@@ -135,13 +120,13 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Cilindraje" for="apellido1"/>
+                                    <h:outputLabel value="Cilindraje" for="CILINDRAJE"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Cilindraje"
                                                  required="true"                                                 
-                                                 id="cili"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 id="cilindraje"
+                                                 value="#{vehiculoController.CILINDRAJE}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -149,13 +134,13 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Traccion" for="apellido1"/>
+                                    <h:outputLabel value="Traccion" for="TRACCION"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Traccion"
                                                  required="true"                                                 
-                                                 id="trac"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 id="traccion"
+                                                 value="#{vehiculoController.TRACCION}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -163,13 +148,13 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Combustible" for="genero"/>
+                                    <h:outputLabel value="Combustible" for="COMBUSTIBLE"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.COMBUSTIBLE}"
                                                        itemLabel="Diesel" itemValue="Die"/>
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.COMBUSTIBLE}"
                                                        itemLabel="Gasolina" itemValue="Gas"/>
                                     </b:panelGrid>
                                 </b:column>
@@ -180,13 +165,13 @@
 
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Kilometraje" for="apellido1"/>
+                                    <h:outputLabel value="Kilometraje" for="KILOMETRAJE"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Kilometraje"
                                                  required="true"                                                 
                                                  id="Kilo"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.KILOMETRAJE}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="modelo"/>
@@ -194,108 +179,118 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Color interior" for="apellido1"/>
+                                    <h:outputLabel value="Color interior" for="COLOR_INT"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="C interior"
                                                  required="true"                                                 
                                                  id="CI"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.COLOR_INTERIOR}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="modelo"/>
+                                    <b:message for="c.interior"/>
                                 </b:column>
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Color exterior" for="apellido1"/>
+                                    <h:outputLabel value="Color exterior" for="COLOR_EXT"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="C exterior"
                                                  required="true"                                                 
                                                  id="CE"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.COLOR_EXTERIOR}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="modelo"/>
+                                    <b:message for="c.exterior"/>
                                 </b:column>
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Descripcion Extras" for="apellido1"/>
+                                    <h:outputLabel value="Descripcion Extras" for="EXTRAS"/>
                                 </b:column>
                                 <b:column medium-screen="5">
                                     <b:inputText placeholder="Extras"
                                                  required="true"                                                 
-                                                 id="DE"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 id="extras"
+                                                 value="#{vehiculoController.DESC_EXTRAS}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="modelo"/>
+                                    <b:message for="extras"/>
                                 </b:column>
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Precio" for="apellido1"/>
+                                    <h:outputLabel value="Precio" for="PRECIO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText placeholder="Precio"
                                                  required="true"                                                 
                                                  id="precio"
-                                                 value="#{prospectoController.apellido1}"/>
+                                                 value="#{vehiculoController.PRECIO}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="modelo"/>
+                                    <b:message for="Precio"/>
                                 </b:column>
                             </b:row>
                            <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Negociable" for="genero"/>
+                                    <h:outputLabel value="Negociable" for="NEGOCIABLE"/>
                                 </b:column>
                                 <b:column medium-screen="1">
                                     <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.NEGOCIABLE}"
                                                        itemLabel="Si" itemValue="Si"/>
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.NEGOCIABLE}"
                                                        itemLabel="No" itemValue="No"/>
                                     </b:panelGrid>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="genero"/>
+                                    <b:message for="Negociable"/>
                                 </b:column>
                             </b:row>
 
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Traspaso" for="genero"/>
+                                    <h:outputLabel value="Traspaso" for="TRASPASO"/>
                                 </b:column>
                                 <b:column medium-screen="1">
                                     <b:panelGrid columns="2">
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.TRASPASO}"
                                                        itemLabel="Si" itemValue="Si"/>
-                                        <b:radiobutton value="#{empleadoController.genero}"
+                                        <b:radiobutton value="#{vehiculoController.TRASPASO}"
                                                        itemLabel="No" itemValue="No"/>
                                     </b:panelGrid>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="genero"/>
+                                    <b:message for="Traspaso"/>
                                 </b:column>
                             </b:row>
-
+                            <br>
+                                
+                            </br>
                             <b:row>
-                                <b:column medium-screen="3">
-                                    <p:captcha label="Check"/>
-                                </b:column>
-                                <b:column medium-screen="2">
-                                    <b:commandButton value="Registrar"
-                                                     action="#{empleadoController.insertEmpleado()}"
-                                                     look="primary"
-                                                     style="width: 100%"/>
-                                </b:column>
+                                <b:column medium-screen="2"/>
+                                <b:column medium-screen="4">
+                                   <b:commandButton value="Modificar"
+                                                     look="success"
+                                                     style="width: 33%"
+                                                     action="#{vehiculoController.updateVehiculo()}"
+                                                     >
+
+                                    </b:commandButton>
+                                    <b:commandButton value="Eliminar"
+                                                     look="danger"
+                                                     action="#{vehiculoController.deleteVehiculo()}"
+                                                     style="width: 33%"
+                                                     >
+
+                                    </b:commandButton>
+                                </b:column>                                
                             </b:row>
                         </b:panel>
                     </b:container>
-                </h:form>
+                </h:form>              
             </ui:define>
 
         </ui:composition>

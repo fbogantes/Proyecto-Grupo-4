@@ -64,7 +64,7 @@ public class VehiculoController extends Vehiculo implements Serializable{
             this.setTRASPASO(e.getTRASPASO());
             this.setID_CLIENTE(e.getID_CLIENTE());
             this.setIMAGE(e.getIMAGE());
-            return "ingresoVehiculo.xhtml";
+            return "editVehiculo.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Posiblemente el registro no exista");
@@ -166,7 +166,7 @@ public class VehiculoController extends Vehiculo implements Serializable{
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al actualizar el vehiculo");
             FacesContext.getCurrentInstance().addMessage("editaVehiculoForm:identificacion", msg);
-            return "ingresoVehiculo.xhtml";
+            return "editVehiculo.xhtml";
         }
     }
 
@@ -177,7 +177,7 @@ public class VehiculoController extends Vehiculo implements Serializable{
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al eliminar el vehiculo");
             FacesContext.getCurrentInstance().addMessage("editaVehiculoForm:identificacion", msg);
-            return "ingresoVehiculo.xhtml";
+            return "editVehiculo.xhtml";
         }
     }
     

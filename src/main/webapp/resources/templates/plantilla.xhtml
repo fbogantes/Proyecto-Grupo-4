@@ -6,7 +6,6 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-
     <h:head>
         <style>    
             body {
@@ -92,11 +91,14 @@
                         <b:dropMenu value='Registro Vehiculo'  icon-awesome='fa-automobile' iconAlign="left">                            
                             <b:navLink value="Publicar"  href="#{request.contextPath}/faces/vehiculo/ingresoVehiculo.xhtml"/>
                             <b:navLink value="Lista Vehiculos"  href="#{request.contextPath}/faces/vehiculo/listVehiculo.xhtml"/>
-                            <b:navLink value="Repuesto"  href="#{request.contextPath}/faces/repuesto/repuestoForm.xhtml"/>
                         </b:dropMenu>
                         <b:dropMenu value='Repuestos'  icon-awesome='fas fa-wrench' iconAlign="left">                            
                             <b:navLink value="Ingresar"  href="#{request.contextPath}/faces/repuesto/repuestoForm.xhtml"/>
                             <b:navLink value="Lista Repuestos"  href="#{request.contextPath}/faces/repuesto/listRepuesto.xhtml"/>
+                        </b:dropMenu>
+                        <b:dropMenu value='Taller'  icon-awesome='fas fa-warehouse' iconAlign="left">                            
+                            <b:navLink value="Ingresar"  href="#{request.contextPath}/faces/taller/tallerForm.xhtml"/>
+                            <b:navLink value="Lista Talleres"  href="#{request.contextPath}/faces/taller/listTaller.xhtml"/>
                         </b:dropMenu>
 
                     </b:navbarLinks>

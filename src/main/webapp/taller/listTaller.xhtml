@@ -17,7 +17,7 @@
                                 <td><b:button value="Registrar" href="#{request.contextPath}/faces/taller/tallerForm.xhtml" /></td>
                             </tr>
                             <br> </br>
-                            <b:dataTable value="#{tallerController.taller}"
+                            <b:dataTable value="#{tallerController.talleres}"
                                          var="repuesto"
                                          excel="true"
                                          csv="true"
@@ -25,10 +25,6 @@
                                          columnVisibility="true"
                                          copy="true"
                                          print="true">
-                                <b:dataTableColumn value="#{taller.id}" 
-                                                   label="ID"
-                                                   width="12%"
-                                                   />
                                 <b:dataTableColumn value="#{taller.nombre}" 
                                                    label="Nombre"
                                                    width="12%"
@@ -39,9 +35,13 @@
                                                    />
                                 <b:dataTableColumn value="#{taller.telefono}"
                                                    label="Telefono"
+                                                   width="10%"
+                                                   />
+                                <b:dataTableColumn style="text-align: center"
+                                                   label="Accion"
                                                    width="10%">
-                                    <b:commandButton value="Edita"
-                                                     action="#{repuestoController.editTaller(taller.nombre, taller.ubicacion, taller.telefono)}"
+                                    <b:commandButton value="Editar"
+                                                     action="#{tallerController.editTaller(taller.id, taller.nombre)}"
                                                      />
 
                                 </b:dataTableColumn>
