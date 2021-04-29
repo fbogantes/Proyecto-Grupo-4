@@ -28,7 +28,7 @@ public class TallerGestion {
     private static final String SQL_GETTALLERES = "SELECT * FROM taller";
     private static final String SQL_GETTALLER = "SELECT * FROM taller where id=? and nombre=?";
     private static final String SQL_INSERTTALLER = "insert into taller(id, nombre, ubicacion,telefono) values (?,?,?,?)";
-    private static final String SQL_UPDATETALLER= "update  taller set nombre=?,ubicacion=?,telefono=? where id=? and nombre=?";
+    private static final String SQL_UPDATETALLER= "update  taller set nombre=?,ubicacion=?,telefono=? where id=?";
     private static final String SQL_DELETETALLER = "Delete FROM taller where id=? and nombre=?";
 
     
@@ -98,10 +98,10 @@ public class TallerGestion {
         try {
 
             PreparedStatement sentencia = Conexion.getConexion().prepareCall(SQL_UPDATETALLER);
-            sentencia.setInt(1, taller.getId());
-            sentencia.setString(2, taller.getNombre());
-            sentencia.setString(3, taller.getUbicacion());
-            sentencia.setString(4, taller.getTelefono());
+            sentencia.setString(1, taller.getNombre());
+            sentencia.setString(2, taller.getUbicacion());
+            sentencia.setString(3, taller.getTelefono());
+            sentencia.setInt(4, taller.getId());
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException ex) {

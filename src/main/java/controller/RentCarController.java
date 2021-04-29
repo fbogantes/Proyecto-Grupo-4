@@ -58,19 +58,19 @@ public class RentCarController extends RentCar implements Serializable {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al insertar el cliente");
             FacesContext.getCurrentInstance().addMessage("rentCarForm:identificacion", msg);
-            return "edit.xhtml";//por editar con el front end
+            return "registroRent.xhtml";//por editar con el front end
         }
     }
 
     public String updateRentCar() {
         if (RentCarGestion.updateRentCar(this)) {
-            return "edit.xhtml";//por editar con el front end
+            return "list.xhtml";//por editar con el front end
 
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al actualizar el cliente");
             FacesContext.getCurrentInstance().addMessage("rentCarForm:identificacion", msg);
-            return "list.xhtml";//por editar con el front end
+            return "edit.xhtml";//por editar con el front end
         }
     }
 
