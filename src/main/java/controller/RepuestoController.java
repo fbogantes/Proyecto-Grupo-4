@@ -20,8 +20,8 @@ import model.Repuesto;
  */
 @Named(value = "repuestoController")
 @SessionScoped
-public class RepuestoController extends Repuesto implements Serializable{
-    
+public class RepuestoController extends Repuesto implements Serializable {
+
     public RepuestoController() {
     }
 
@@ -35,7 +35,7 @@ public class RepuestoController extends Repuesto implements Serializable{
             this.setId(e.getId());
             this.setDescripcion(e.getDescripcion());
             this.setPrecio(e.getPrecio());
-            
+
             return "editRepuesto.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
@@ -44,22 +44,22 @@ public class RepuestoController extends Repuesto implements Serializable{
             return "listRepuesto.xhtml";
         }
     }
-    
+
     public String infoRepuesto(int ID) {
-          Repuesto e = RepuestoGestion.getRepuesto(ID);
+        Repuesto e = RepuestoGestion.getRepuesto(ID);
         if (e != null) {
             this.setId(e.getId());
             this.setDescripcion(e.getDescripcion());
-            this.setPrecio(e.getPrecio());       
+            this.setPrecio(e.getPrecio());
             return "detallesRepuesto.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Posiblemente el registro no exista");
             FacesContext.getCurrentInstance().addMessage("detallesRepuestoForm:identificacion", msg);
-            return "principal.xhtml" ;
+            return "principal.xhtml";
         }
     }
-    
+
     private boolean noImprimir = true;
 
     public boolean isNoImprimir() {
@@ -76,7 +76,7 @@ public class RepuestoController extends Repuesto implements Serializable{
             this.setId(e.getId());
             this.setDescripcion(e.getDescripcion());
             this.setPrecio(e.getPrecio());
-            
+
             noImprimir = false;
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
