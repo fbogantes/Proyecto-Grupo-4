@@ -12,13 +12,13 @@
             <ui:define name="content">
                 <h:form>
                     <b:container fluid="true">
-                        <b:panel title="Lista De Taller" look="info" collapsible="false">
+                        <b:panel title="Lista de Talleres" look="info" collapsible="false">
                             <tr>
                                 <td><b:button value="Registrar" href="#{request.contextPath}/faces/taller/tallerForm.xhtml" /></td>
                             </tr>
                             <br> </br>
                             <b:dataTable value="#{tallerController.talleres}"
-                                         var="repuesto"
+                                         var="taller"
                                          excel="true"
                                          csv="true"
                                          pdf="true"
