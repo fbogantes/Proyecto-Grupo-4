@@ -13,34 +13,44 @@
     </h:head>
     <h:body>
         <ui:composition template="./../resources/templates/plantilla.xhtml">
-            <ui:define name="content">
+             <ui:define name="content">
                 <h:form id="registroClienteForm">
                     <b:container fluid="true">
-                        <b:panel title="Cliente" look="primary">
+                        <b:panel title="Edita Cliente" look="primary" collapsible="false">
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Cedula" for="cedula"/>
+                                    <h:outputLabel value="ID" for="id"/>
                                 </b:column>
-                                <b:column medium-screen="2">
-                                    <b:inputText placeholder="101020301"
-                                                 required="true"
-                                                 mask="9999999999"
-                                                 id="idCliente"
-                                                 value="#{clienteController.idCliente}"/>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="ID" id="ID_CLIENTE"
+                                                 value="#{clienteController.ID_CLIENTE}"
+                                                 />
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="cedula"/>
+                                    <b:message for="ID_CLIENTE"/>
+                                </b:column>
+                            </b:row>
+                            <b:row tooltip="Modifique la identificacion unicamente para insertar un registro nuevo">
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Identificacion" for="CEDULA" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Identificacion" id="CEDULA" required="true"
+                                                 value="#{clienteController.CEDULA}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="CEDULA"/>
                                 </b:column>
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Nombre" for="nombre"/>
+                                    <h:outputText value="Nombre" />
                                 </b:column>
-                                <b:column medium-screen="2">
-                                    <b:inputText placeholder="Nombre"
-                                                 required="true"                                                 
-                                                 id="nombre"
-                                                 value="#{clienteController.nombre}"/>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Nombre" id="NOMBRE" required="true"
+                                                 value="#{clienteController.NOMBRE}"
+                                                 />
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="nombre"/>
@@ -48,62 +58,86 @@
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Primer Apellido" for="apellido1"/>
+                                    <h:outputText value="Primer Apellido" />
                                 </b:column>
-                                <b:column medium-screen="2">
-                                    <b:inputText placeholder="Primer Apellido"
-                                                 required="true"                                                 
-                                                 id="apellido1"
-                                                 value="#{clienteController.apellido}"/>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Primer Apellido" id="APELLIDO_1" required="true"
+                                                 value="#{clienteController.APELLIDO_1}"
+                                                 />
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="apellido1"/>
+                                    <b:message for="APELLIDO_1"/>
                                 </b:column>
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Correo" for="correo"/>
+                                    <h:outputText value="Segundo Apellido" />
                                 </b:column>
-                                <b:column medium-screen="2">
-                                    <b:inputText placeholder="Correo"
-                                                 required="true"  
-                                                 mask="email"
-                                                 id="correo"
-                                                 value="#{clienteController.correo}"/>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Segundo Apellido" id="APELLIDO_2" required="true"
+                                                 value="#{clienteController.APELLIDO_2}"
+                                                 />
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="correo"/>
+                                    <b:message for="APELLIDO_2"/>
                                 </b:column>
                             </b:row>
                             <b:row>
                                 <b:column medium-screen="2">
-                                    <h:outputLabel value="Celular" for="celular"/>
+                                    <h:outputText value="Correo" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Correo" id="CORREO" required="true"
+                                                 value="#{clienteController.CORREO}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="CORREO"/>
+                                </b:column>
+                            </b:row>
+                            <b:row>
+                                <b:column medium-screen="2">
+                                    <h:outputLabel value="Telefono" for="TELEFONO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
-                                    <b:inputText placeholder="Celular"
+                                    <b:inputText placeholder="Telefono"
                                                  required="true"  
                                                  mask="9999-9999"
-                                                 id="celular"
-                                                 value="#{clienteController.celular}"/>
+                                                 id="TELEFONO"
+                                                 value="#{clienteController.TELEFONO}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
-                                    <b:message for="celular"/>
+                                    <b:message for="TELEFONO"/>
                                 </b:column>
                             </b:row>
                             <b:row>
-                                <b:column medium-screen="3">
-                                    <p:captcha label="Check"/>
-                                </b:column>
                                 <b:column medium-screen="2">
-                                    <b:commandButton value="Ingresar"
-                                                     action="#{clienteController.insertCliente()}"
-                                                     look="primary"
-                                                     style="width: 100%"/>
+                                    <h:outputText value="Ubicacion" />
+                                </b:column>
+                                <b:column medium-screen="4">
+                                    <b:inputText placeholder="Ubicacion" id="UBICACION" required="true"
+                                                 value="#{clienteController.UBICACION}"
+                                                 />
+                                </b:column>
+                                <b:column medium-screen="6" style-class="message">
+                                    <b:message for="UBICACION"/>
                                 </b:column>
                             </b:row>
-                        </b:panel>
+                            <b:row>
+                                <b:column medium-screen="2"/>
+                                <b:column medium-screen="4">
+                                    <b:commandButton value="Ingresar"
+                                                     look="primary"
+                                                     action="#{clienteController.insertCliente()}"
+                                                     style="width: 33%"
+                                                     >
+
+                                    </b:commandButton>
+                                </b:column>                                
+                            </b:row>
+                        </b:panel> 
                     </b:container>
-                </h:form>
+                </h:form>   
             </ui:define>
         </ui:composition>
     </h:body>

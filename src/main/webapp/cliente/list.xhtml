@@ -13,6 +13,7 @@
                 <h:form>
                     <b:container fluid="true">
                         <b:panel title="Lista De Clientes" look="primary" collapsible="false">
+                            <td><b:button value="Registrar" href="#{request.contextPath}/faces/cliente/registroCliente.xhtml" /></td>
                             <b:dataTable value="#{clienteController.clientes}"
                                          var="cliente"
                                          excel="true"

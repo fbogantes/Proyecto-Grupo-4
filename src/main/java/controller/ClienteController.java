@@ -52,7 +52,7 @@ public class ClienteController extends Cliente implements Serializable {
 
     public String insertCliente() {
         if (ClienteGestion.insertCliente(this)) {
-            return "edit.xhtml";
+            return "registroCliente.xhtml";
 
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",

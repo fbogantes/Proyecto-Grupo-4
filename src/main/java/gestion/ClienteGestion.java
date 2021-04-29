@@ -28,8 +28,8 @@ public class ClienteGestion {
 
     private static final String SQL_GETCLIENTES = "SELECT * FROM cliente";
     private static final String SQL_GETCLIENTE = "SELECT * FROM cliente where ID_CLIENTE=? and CEDULA=?";
-    private static final String SQL_INSERTCLIENTE = "insert into cliente(ID_CLEINTE,CEDULA,NOMBRE_1,APELLIDO_1,APELLIDO_2,CORREO,TELEFONO, UBICACION) values (?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATECLIENTE= "update  cliente set NOMBRE_1=?,APELLIDO_1=?,CORREO=?,TELEFONO=?,UBICACION=? where ID_CLIENTE=? and CEDULA=?";
+    private static final String SQL_INSERTCLIENTE = "insert into cliente(ID_CLIENTE,CEDULA,NOMBRE,APELLIDO_1,APELLIDO_2,CORREO,TELEFONO,UBICACION) values (?,?,?,?,?,?,?,?)";
+    private static final String SQL_UPDATECLIENTE= "update  cliente set NOMBRE=?,APELLIDO_1=?,APELLIDO_2=?,CORREO=?,TELEFONO=?,UBICACION=? where ID_CLIENTE=? and CEDULA=?";
     private static final String SQL_DELETECLIENTE = "Delete FROM cliente where ID_CLIENTE=? and CEDULA=?";
 
     public static ArrayList<Cliente> getClientes() {
