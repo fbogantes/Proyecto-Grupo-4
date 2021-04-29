@@ -25,8 +25,8 @@
                                     <b:inputText placeholder="101020301"
                                                  required="true"
                                                  mask="9999999999"
-                                                 id="cedula"
-                                                 value="#{ClienteController.idCliente}"/>
+                                                 id="idCliente"
+                                                 value="#{clienteController.idCliente}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="cedula"/>
@@ -40,7 +40,7 @@
                                     <b:inputText placeholder="Nombre"
                                                  required="true"                                                 
                                                  id="nombre"
-                                                 value="#{ClienteController.nombre}"/>
+                                                 value="#{clienteController.nombre}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="nombre"/>
@@ -54,7 +54,7 @@
                                     <b:inputText placeholder="Primer Apellido"
                                                  required="true"                                                 
                                                  id="apellido1"
-                                                 value="#{ClienteController.apellido}"/>
+                                                 value="#{clienteController.apellido}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="apellido1"/>
@@ -69,7 +69,7 @@
                                                  required="true"  
                                                  mask="email"
                                                  id="correo"
-                                                 value="#{ClienteController.correo}"/>
+                                                 value="#{clienteController.correo}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="correo"/>
@@ -84,7 +84,7 @@
                                                  required="true"  
                                                  mask="9999-9999"
                                                  id="celular"
-                                                 value="#{ClienteController.celular}"/>
+                                                 value="#{clienteController.celular}"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="celular"/>
@@ -96,7 +96,7 @@
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:commandButton value="Ingresar"
-                                                     action="#{ClienteController.insertCliente()}"
+                                                     action="#{clienteController.insertCliente()}"
                                                      look="primary"
                                                      style="width: 100%"/>
                                 </b:column>

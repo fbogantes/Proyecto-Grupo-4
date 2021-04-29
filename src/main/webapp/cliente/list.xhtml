@@ -7,16 +7,12 @@
     <h:head>
         <title>Lista de Clientes</title>
     </h:head>
-    <body>
+    <h:body>
         <ui:composition template="./../resources/templates/plantilla.xhtml">
             <ui:define name="content">
                 <h:form>
                     <b:container fluid="true">
                         <b:panel title="Lista De Clientes" look="primary" collapsible="false">
-                            <tr>
-                                <td><b:button value="Registrar" href="#{request.contextPath}/faces/cliente/edit.xhtml" /></td>
-                            </tr>
-                            <br> </br>
                             <b:dataTable value="#{clienteController.clientes}"
                                          var="cliente"
                                          excel="true"
@@ -25,35 +21,43 @@
                                          columnVisibility="true"
                                          copy="true"
                                          print="true">
-                                <b:dataTableColumn value="#{cliente.id}" 
-                                                   label="Id"
-                                                   width="2%"
-                                                   />
-                                <b:dataTableColumn value="#{cliente.idCliente}" 
+                                <b:dataTableColumn value="#{cliente.ID_CLIENTE}" 
                                                    label="Identificacion"
                                                    width="9%"
                                                    />
-                                <b:dataTableColumn value="#{cliente.nombre}" 
-                                                   label="Nombre"
+                                <b:dataTableColumn value="#{cliente.CEDULA}" 
+                                                   label="Cedula"
                                                    width="15%"
                                                    />
-                                <b:dataTableColumn value="#{cliente.apellido}" 
-                                                   label="Primer Apellido"
+                                <b:dataTableColumn value="#{cliente.NOMBRE}" 
+                                                   label="Nombre"
                                                    width="19%"
                                                    />
-                                <b:dataTableColumn value="#{cliente.correo}" 
-                                                   label="Correo"
+                                <b:dataTableColumn value="#{cliente.APELLIDO_1}" 
+                                                   label="Primer Apellido"
                                                    width="12%"
                                                    />
-                                <b:dataTableColumn value="#{cliente.celular}" 
-                                                   label="Celular"
+                                <b:dataTableColumn value="#{cliente.APELLIDO_2}" 
+                                                   label="Segundo Apellido"
+                                                   width="14%"
+                                                   />
+                                <b:dataTableColumn value="#{cliente.CORREO}" 
+                                                   label="Correo"
+                                                   width="14%"
+                                                   />
+                                <b:dataTableColumn value="#{cliente.TELEFONO}" 
+                                                   label="Telefono"
+                                                   width="14%"
+                                                   />
+                                <b:dataTableColumn value="#{cliente.UBICACION}" 
+                                                   label="UbicaciÃ³n"
                                                    width="14%"
                                                    />
                                 <b:dataTableColumn style="text-align: center"
                                                    label="Accion"
                                                    width="10%">
                                     <b:commandButton value="Editar"
-                                                     action="#{clienteController.editCliente(cliente.id, cliente.idCliente)}"
+                                                     action="#{clienteController.editCliente(cliente.ID_CLIENTE, cliente.CEDULA)}"
                                                      />
 
                                 </b:dataTableColumn>
@@ -65,5 +69,5 @@
             </ui:define>
         </ui:composition>
 
-    </body>
+    </h:body>
 </html>

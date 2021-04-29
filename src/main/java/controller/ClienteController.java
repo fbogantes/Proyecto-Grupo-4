@@ -30,15 +30,17 @@ public class ClienteController extends Cliente implements Serializable {
         return ClienteGestion.getClientes();
     }
 
-    public String editCliente(int id, String idCliente) {
-        Cliente e = ClienteGestion.getCliente(id, idCliente);
+    public String editCliente(int ID_CLIENTE, String CEDULA) {
+        Cliente e = ClienteGestion.getCliente(ID_CLIENTE, CEDULA);
         if (e != null) {
-            this.setId(e.getId());
-            this.setIdCliente(e.getIdCliente());
-            this.setNombre(e.getNombre());
-            this.setApellido(e.getApellido());
-            this.setCorreo(e.getCorreo());
-            this.setCelular(e.getCelular());
+            this.setID_CLIENTE(e.getID_CLIENTE());
+            this.setCEDULA(e.getCEDULA());
+            this.setNOMBRE(e.getNOMBRE());
+            this.setAPELLIDO_1(e.getAPELLIDO_1());
+            this.setAPELLIDO_2(e.getAPELLIDO_2());
+            this.setCORREO(e.getCORREO());
+            this.setTELEFONO(e.getTELEFONO());
+            this.setUBICACION(e.getUBICACION());
             return "edit.xhtml";
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
@@ -50,13 +52,13 @@ public class ClienteController extends Cliente implements Serializable {
 
     public String insertCliente() {
         if (ClienteGestion.insertCliente(this)) {
-            return "list.xhtml";
+            return "edit.xhtml";
 
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al insertar el cliente");
             FacesContext.getCurrentInstance().addMessage("editaClienteForm:identificacion", msg);
-            return "edit.xhtml";
+            return "list.xhtml";
         }
     }
 
