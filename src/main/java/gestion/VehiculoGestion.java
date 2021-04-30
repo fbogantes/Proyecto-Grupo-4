@@ -32,10 +32,10 @@ public class VehiculoGestion {
     private static final String SQL_INSERTVEHICULO= "insert into VEHICULO"
             + "(MARCA, MODELO, PLACA, ESTILO, YEAR, PUERTAS, CONDICION, CILINDRAJE, TRACCION, COMBUSTIBLE, KILOMETRAJE, COLOR_EXT, COLOR_INT, EXTRAS, PRECIO, NEGOCIABLE, TRASPASO, ID_CLIENTE, IMAGE) "
             + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATEVEHICULO= "update  VEHICULO set "
+    private static final String SQL_UPDATEVEHICULO= "update  proyecto.VEHICULO set "
             + "MARCA=?,MODELO=?, ESTILO=?,YEAR=?, PUERTAS=?, CONDICION=?, CILINDRAJE=?, TRACCION=?, COMBUSTIBLE=?, KILOMETRAJE=?, COLOR_EXT=?, COLOR_INT=?, EXTRAS=?,PRECIO=?, NEGOCIABLE=?, TRASPASO=?, ID_CLIENTE=?, IMAGE=?"
             + "WHERE ID_VEHICULO=? AND PLACA=?";
-    private static final String SQL_DELETEVEHICULO = "Delete FROM VEHICULO WHERE ID_VEHICULO AND PLACA";
+    private static final String SQL_DELETEVEHICULO = "Delete FROM proyecto.VEHICULO WHERE ID_VEHICULO AND PLACA";
 
     public static ArrayList<Vehiculo> getVehiculos() {
         ArrayList<Vehiculo> list = new ArrayList<>();

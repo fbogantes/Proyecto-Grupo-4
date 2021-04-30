@@ -140,17 +140,22 @@
 
                 <div id="mySidenav" class="sidenav">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                    <a href="#{request.contextPath}/faces/principal.xhtml">Inicio</a>
+                        <a href="#{request.contextPath}/faces/index.xhtml">Inicio</a>
 
-                    <b:navLink value="Gestion de Clientes" href="#{request.contextPath}/faces/cliente/list.xhtml"/>
-                    <br> </br>
-                    <b:navLink value="Lista de Empleados"  href="#{request.contextPath}/faces/empleado/listempleado.xhtml"/>
-                    <br> </br>
-                    <b:navLink value="Lista de Vehiculo"  href="#{request.contextPath}/faces/empleado/listVehiculo.xhtml"/>
-                    <br> </br>
-                    <b:navLink value="Respaldos"  href="#{request.contextPath}/faces/empleado/reporteListaVehiculo.xhtml"/>
-                    <br> </br>              
-                    <a href="#{request.contextPath}/faces/index.html">Salir</a>
+                        <br> </br>  
+                        <b:navLink value="Gestion de Clientes" href="#{request.contextPath}/faces/cliente/list.xhtml"/>
+                        <br> </br>
+                        <b:navLink value="Lista de Empleados"  href="#{request.contextPath}/faces/empleado/listempleado.xhtml"/>
+                        <br> </br>
+                        <b:navLink value="Lista de Vehiculo"  href="#{request.contextPath}/faces/vehiculo/listVehiculo.xhtml"/>
+                        <br> </br>
+                        <b:navLink value="Respaldos"  href="#{request.contextPath}/faces/vehiculo/reporteListaVehiculo.xhtml"/>
+                        <br> </br>
+                        <b:navLink value="Talleres"  href="#{request.contextPath}/faces/taller/listTaller.xhtml"/>
+                        <br> </br>
+                        <b:navLink value="RentCars"  href="#{request.contextPath}/faces/renta/list.xhtml"/>
+                                  
+                    <a href="#{request.contextPath}/faces/index.xhtml">Salir</a>
 
                 </div>
                 <span style="font-size:20px;cursor:pointer;color:#045491" onclick="openNav()">&#9776; Menu</span>

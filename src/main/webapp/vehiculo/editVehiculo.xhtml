@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:b="http://bootsfaces.net/ui"
+      xmlns:b="http://bootsfaces.net/ui"  
       xmlns:p="http://primefaces.org/ui">
 
     <body>
@@ -266,7 +266,13 @@
                                     <b:message for="Traspaso"/>
                                 </b:column>
                             </b:row>
-                                
+                            <b:row>
+                                <b:column medium-screen="1">
+                                    <b:form enctype="multipart/form-data">
+                                    <p:fileUpload value="#{vehiculoController.IMAGE}" mode="simple" skinSimple="true"/>
+                                    </b:form>
+                                </b:column>
+                            </b:row>    
                             <br>
                                 
                             </br>

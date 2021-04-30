@@ -165,7 +165,7 @@ public class VehiculoController extends Vehiculo implements Serializable{
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al actualizar el vehiculo");
-            FacesContext.getCurrentInstance().addMessage("editaVehiculoForm:identificacion", msg);
+            FacesContext.getCurrentInstance().addMessage("editaVehiculoForm:PLACA", msg);
             return "editVehiculo.xhtml";
         }
     }
@@ -176,7 +176,7 @@ public class VehiculoController extends Vehiculo implements Serializable{
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
                     "Ocurrio un error al eliminar el vehiculo");
-            FacesContext.getCurrentInstance().addMessage("editaVehiculoForm:identificacion", msg);
+            FacesContext.getCurrentInstance().addMessage("editaVehiculoForm:PLACA", msg);
             return "editVehiculo.xhtml";
         }
     }
