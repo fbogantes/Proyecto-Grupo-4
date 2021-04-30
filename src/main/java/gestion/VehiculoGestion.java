@@ -32,10 +32,10 @@ public class VehiculoGestion {
     private static final String SQL_INSERTVEHICULO= "insert into VEHICULO"
             + "(MARCA, MODELO, PLACA, ESTILO, YEAR, PUERTAS, CONDICION, CILINDRAJE, TRACCION, COMBUSTIBLE, KILOMETRAJE, COLOR_EXT, COLOR_INT, EXTRAS, PRECIO, NEGOCIABLE, TRASPASO, ID_CLIENTE, IMAGE) "
             + "values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-    private static final String SQL_UPDATEVEHICULO= "update  proyecto.VEHICULO set "
+    private static final String SQL_UPDATEVEHICULO= "update  VEHICULO set "
             + "MARCA=?,MODELO=?, ESTILO=?,YEAR=?, PUERTAS=?, CONDICION=?, CILINDRAJE=?, TRACCION=?, COMBUSTIBLE=?, KILOMETRAJE=?, COLOR_EXT=?, COLOR_INT=?, EXTRAS=?,PRECIO=?, NEGOCIABLE=?, TRASPASO=?, ID_CLIENTE=?, IMAGE=?"
             + "WHERE ID_VEHICULO=? AND PLACA=?";
-    private static final String SQL_DELETEVEHICULO = "Delete FROM proyecto.VEHICULO WHERE ID_VEHICULO AND PLACA";
+    private static final String SQL_DELETEVEHICULO = "Delete FROM VEHICULO WHERE ID_VEHICULO AND PLACA";
 
     public static ArrayList<Vehiculo> getVehiculos() {
         ArrayList<Vehiculo> list = new ArrayList<>();
@@ -225,27 +225,27 @@ public class VehiculoGestion {
 
     public static boolean updateVehiculo(Vehiculo vehiculo) {
         try {
-
             PreparedStatement sentencia = Conexion.getConexion().prepareCall(SQL_UPDATEVEHICULO);
             sentencia.setString(1, vehiculo.getMARCA());
             sentencia.setString(2, vehiculo.getMODELO());
-            sentencia.setString(3, vehiculo.getPLACA());
-            sentencia.setString(4, vehiculo.getESTILO());
-            sentencia.setInt(5, vehiculo.getYEAR());
-            sentencia.setInt(6, vehiculo.getPUERTAS());
-            sentencia.setString(7, vehiculo.getDESC_CONDICION());
-            sentencia.setString(8, vehiculo.getCILINDRAJE());
-            sentencia.setString(9, vehiculo.getTRACCION());
-            sentencia.setString(10, vehiculo.getCOMBUSTIBLE());
-            sentencia.setInt(11, vehiculo.getKILOMETRAJE());
-            sentencia.setString(12, vehiculo.getCOLOR_EXTERIOR());
-            sentencia.setString(13, vehiculo.getCOLOR_INTERIOR());
-            sentencia.setString(14, vehiculo.getDESC_EXTRAS());
-            sentencia.setInt(15, vehiculo.getPRECIO());
-            sentencia.setString(16, vehiculo.getNEGOCIABLE());
-            sentencia.setString(17, vehiculo.getTRASPASO());
-            sentencia.setInt(18, vehiculo.getID_CLIENTE());
-            sentencia.setString(19, vehiculo.getIMAGE());
+            sentencia.setString(3, vehiculo.getESTILO());
+            sentencia.setInt(4, vehiculo.getYEAR());
+            sentencia.setInt(5, vehiculo.getPUERTAS());
+            sentencia.setString(6, vehiculo.getDESC_CONDICION());
+            sentencia.setString(7, vehiculo.getCILINDRAJE());
+            sentencia.setString(8, vehiculo.getTRACCION());
+            sentencia.setString(9, vehiculo.getCOMBUSTIBLE());
+            sentencia.setInt(10, vehiculo.getKILOMETRAJE());
+            sentencia.setString(11, vehiculo.getCOLOR_EXTERIOR());
+            sentencia.setString(12, vehiculo.getCOLOR_INTERIOR());
+            sentencia.setString(13, vehiculo.getDESC_EXTRAS());
+            sentencia.setInt(14, vehiculo.getPRECIO());
+            sentencia.setString(15, vehiculo.getNEGOCIABLE());
+            sentencia.setString(16, vehiculo.getTRASPASO());
+            sentencia.setInt(17, vehiculo.getID_CLIENTE());
+            sentencia.setString(18, vehiculo.getIMAGE());
+            sentencia.setInt(19, vehiculo.getID_VEHICULO());
+            sentencia.setString(20, vehiculo.getPLACA());
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException ex) {
