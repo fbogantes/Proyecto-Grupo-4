@@ -6,6 +6,12 @@
       xmlns:b="http://bootsfaces.net/ui"
       xmlns:p="http://primefaces.org/ui">
 
+
+    <style>
+        .image:hover{
+            transform: scale(1.02); 
+        }
+    </style>
     <body>
 
         <ui:composition template="./resources/templates/plantillalogout.xhtml">
@@ -13,8 +19,23 @@
             <ui:define name="content">
                 <h:form id="detallesForm">
                     <b:container fluid="true">
-                        <b:panel title="Detalles del Vehiculo" look="primary">
-                            
+                        <b:panel title="Registro de Vehiculo" look="primary">
+                            <b:panel>
+                                <b:row>
+                                    <b:column medium-screen="2">
+                                        <h:outputLabel value="Foto" for="IMAGE"/>
+                                    </b:column>
+
+                                    <img
+                                        style="height: 250px;
+                                        align-items: center;
+                                        border-radius: 25px;" 
+                                        src="carros/#{vehiculoController.IMAGE}"/>
+
+                                </b:row>
+                            </b:panel>
+                            <br> </br>
+
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Marca" for="MARCA"/>
@@ -76,22 +97,22 @@
                                     <b:message for="Estilo"/>
                                 </b:column>
                             </b:row>
-                            
+
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Año" for="AÑO"/>
                                 </b:column>
                                 <b:column medium-screen="2">
                                     <b:inputText required="true"                                                 
-                                                  id="year"
-                                                  value="#{vehiculoController.YEAR}"
-                                                  readonly="true"/>
+                                                 id="year"
+                                                 value="#{vehiculoController.YEAR}"
+                                                 readonly="true"/>
                                 </b:column>
                                 <b:column medium-screen="6" style-class="message">
                                     <b:message for="fechaGraduacionColegio"/>
                                 </b:column>
                             </b:row>
-                            
+
                             <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Puertas" for="PUERTAS"/>
@@ -112,7 +133,7 @@
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Condicion" for="CONDICION"/>
                                 </b:column>
-                                <b:column medium-screen="5">
+                                <b:column medium-screen="4">
                                     <b:inputText placeholder="Condicion"
                                                  required="true"  
                                                  id="Condicion"
@@ -217,7 +238,7 @@
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Descripcion Extras" for="EXTRAS"/>
                                 </b:column>
-                                <b:column medium-screen="5">
+                                <b:column medium-screen="4">
                                     <b:inputText placeholder="Extras"
                                                  required="true"                                                 
                                                  id="extras"
@@ -243,7 +264,7 @@
                                     <b:message for="modelo"/>
                                 </b:column>
                             </b:row>
-                           <b:row>
+                            <b:row>
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Negociable" for="NEGOCIABLE"/>
                                 </b:column>
@@ -273,11 +294,11 @@
                                     <b:message for="modelo"/>
                                 </b:column>
                             </b:row>
-                            
+
                         </b:panel>
                     </b:container>
                 </h:form>
-                
+
             </ui:define>
 
         </ui:composition>
