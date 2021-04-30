@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+<h:head>
+        <link href="contactostyle.css" rel="stylesheet" type="text/css"/>
+        <title>AutoTico</title>
+    </h:head>
+    
+    <body>
+
+        <ui:composition template="./resources/templates/plantillalogout.xhtml">
+
+            <ui:define name="content">
+                <div class="wrapper">
+                    <div class="title">
+                        <h1>contact us form</h1>
+                    </div>
+                    <div class="contact-form">
+                        <div class="input-fields">
+                            <input type="text" class="input" placeholder="Nombre"/>
+                            <input type="text" class="input" placeholder="Correo"/>
+                            <input type="text" class="input" placeholder="TelÃ©fono"/>
+                            <input type="text" class="input" placeholder="Asunto"/>
+                        </div>
+                        <div class="msg">
+                            <textarea placeholder="Mensaje"></textarea>
+                            <div class="btn">send</div>
+                        </div>
+                    </div>
+                </div>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
