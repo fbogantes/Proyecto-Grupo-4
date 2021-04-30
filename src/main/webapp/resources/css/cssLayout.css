@@ -31,7 +31,7 @@
 
 .center_content {
     position: relative;
-    background-color: #dddddd;
+    background-color: #3fa2ba;
     padding: 5px;
 }
 
@@ -48,13 +48,13 @@
 }
 
 #top a:link, #top a:visited {
-  color: #5BC0BE;
+  color: #3ca3a1;
   font-weight : bold;
   text-decoration: none;
 }
 
 #top a:link:hover, #top a:visited:hover  {
-  color: #366063;
+  color: black;
   font-weight : bold;
   text-decoration : underline;
 }
@@ -62,7 +62,7 @@
 .footer {
     padding-top: 5px;
     text-align: center;
-    background-color: #366063;
+    background-color: #366063;;
     border-radius: 25px 25px 0 0    ;
 }
 .footer p{

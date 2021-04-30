@@ -13,20 +13,7 @@
                 <h:form id="editaClienteForm">
                     <b:container fluid="true">
                         <b:panel title="Edita Cliente" look="primary" collapsible="false">
-                            <b:row tooltip="El ID no se modifica">
-                                <b:column medium-screen="2">
-                                    <h:outputLabel value="ID" for="id"/>
-                                </b:column>
-                                <b:column medium-screen="4">
-                                    <b:inputText placeholder="ID" id="ID_CLIENTE"
-                                                 value="#{clienteController.ID_CLIENTE}"
-                                                 readonly="false"
-                                                 />
-                                </b:column>
-                                <b:column medium-screen="6" style-class="message">
-                                    <b:message for="ID_CLIENTE"/>
-                                </b:column>
-                            </b:row>
+                            
                             <b:row tooltip="Modifique la identificacion unicamente para insertar un registro nuevo">
                                 <b:column medium-screen="2">
                                     <h:outputLabel value="Identificacion" for="CEDULA" />
@@ -123,13 +110,7 @@
                             <b:row>
                                 <b:column medium-screen="2"/>
                                 <b:column medium-screen="4">
-                                    <b:commandButton value="Ingresar"
-                                                     look="primary"
-                                                     action="#{clienteController.insertCliente()}"
-                                                     style="width: 33%"
-                                                     >
-
-                                    </b:commandButton>
+                                    
                                     <b:commandButton value="Modificar"
                                                      look="success"
                                                      style="width: 33%"

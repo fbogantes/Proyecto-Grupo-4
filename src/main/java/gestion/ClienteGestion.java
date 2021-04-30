@@ -28,7 +28,7 @@ public class ClienteGestion {
 
     private static final String SQL_GETCLIENTES = "SELECT * FROM cliente";
     private static final String SQL_GETCLIENTE = "SELECT * FROM cliente where ID_CLIENTE=? and CEDULA=?";
-    private static final String SQL_INSERTCLIENTE = "insert into cliente(ID_CLIENTE,CEDULA,NOMBRE,APELLIDO_1,APELLIDO_2,CORREO,TELEFONO,UBICACION) values (?,?,?,?,?,?,?,?)";
+    private static final String SQL_INSERTCLIENTE = "insert into cliente(CEDULA,NOMBRE,APELLIDO_1,APELLIDO_2,CORREO,TELEFONO,UBICACION) values (?,?,?,?,?,?,?)";
     private static final String SQL_UPDATECLIENTE= "update  cliente set NOMBRE=?,APELLIDO_1=?,APELLIDO_2=?,CORREO=?,TELEFONO=?,UBICACION=? where ID_CLIENTE=? and CEDULA=?";
     private static final String SQL_DELETECLIENTE = "Delete FROM cliente where ID_CLIENTE=? and CEDULA=?";
 
@@ -89,14 +89,13 @@ public class ClienteGestion {
     public static boolean insertCliente(Cliente cliente) {
         try {
             PreparedStatement sentencia = Conexion.getConexion().prepareStatement(SQL_INSERTCLIENTE);
-            sentencia.setInt(1, cliente.getID_CLIENTE());
-            sentencia.setString(2, cliente.getCEDULA());
-            sentencia.setString(3, cliente.getNOMBRE());
-            sentencia.setString(4, cliente.getAPELLIDO_1());
-            sentencia.setString(5, cliente.getAPELLIDO_2());
-            sentencia.setString(6, cliente.getCORREO());
-            sentencia.setString(7, cliente.getTELEFONO());
-            sentencia.setString(8, cliente.getUBICACION());
+            sentencia.setString(1, cliente.getCEDULA());
+            sentencia.setString(2, cliente.getNOMBRE());
+            sentencia.setString(3, cliente.getAPELLIDO_1());
+            sentencia.setString(4, cliente.getAPELLIDO_2());
+            sentencia.setString(5, cliente.getCORREO());
+            sentencia.setString(6, cliente.getTELEFONO());
+            sentencia.setString(7, cliente.getUBICACION());
             return sentencia.executeUpdate() > 0;
 
         } catch (SQLException ex) {
