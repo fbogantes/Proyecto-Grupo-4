@@ -27,7 +27,7 @@ public class RentCarGestion {
 
     private static final String SQL_GETRENTS = "SELECT * FROM rentcar";
     private static final String SQL_GETRENT = "SELECT * FROM rentcar where idRentCar=? and Nombre=?";
-    private static final String SQL_INSERTRENT = "insert into rentcar(idRentCar,Nombre,Ubicacion,Estilo,Correo,Telefono) values (?,?,?,?,?,?)";
+    private static final String SQL_INSERTRENT = "insert into rentcar (idRentCar,Nombre,Ubicacion,Estilo,Correo,Telefono) values (?,?,?,?,?,?)";
     private static final String SQL_UPDATERENT = "update rentcar set Nombre=?,Ubicacion=?,Estilo=?,Correo=?,Telefono=? where idRentCar=?";
     private static final String SQL_DELETERENT = "Delete FROM rentcar where idRentCar=? and Nombre=?";
 

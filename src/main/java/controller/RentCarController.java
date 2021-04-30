@@ -52,7 +52,7 @@ public class RentCarController extends RentCar implements Serializable {
 
     public String insertRentCar() {
         if (RentCarGestion.insertRentCar(this)) {
-            return "list.xhtml";//por editar con el front end
+            return "list.xhtml";
 
         } else {
             FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Error",
